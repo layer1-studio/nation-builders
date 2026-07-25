@@ -510,6 +510,12 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showHomeTimeline&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Home&quot;}}">
+// TODO(backend): point SUBMISSION_ENDPOINT at the processor that forwards applications
+// to the Nation Builders team inboxes and syncs them to Zoho (per project scope). Until
+// that endpoint exists, submissions fall back to a pre-filled email to lk_support@greatplacetowork.com —
+// swap in the real individual team addresses once they're provided.
+const SUBMISSION_ENDPOINT = '';
+
 class Component extends DCLogic {
   state = {
     page: 'home',
@@ -712,7 +718,37 @@ class Component extends DCLogic {
       eligibilityChecks,
       eligibilitySummary: eligibilityCount + ' of 4 confirmed',
       formSubmitted, formNotSubmitted: !formSubmitted,
-      submitForm: () => this.setState({ formSubmitted: true }),
+      submitForm: async () => {
+        const payload = {
+          organization: formData.org, industry: formData.industry, employees: formData.employees,
+          contact: formData.contact, email: formData.email,
+          eligibility: { legal: formData.eligLegal, survey: formData.eligSurvey, audit: formData.eligAudit, audited: formData.eligAudited }
+        };
+        if (SUBMISSION_ENDPOINT) {
+          try {
+            await fetch(SUBMISSION_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+          } catch (err) {
+            console.error('Nation Builders application submission failed:', err);
+          }
+        } else {
+          // Fallback while SUBMISSION_ENDPOINT is unset: open a pre-filled email so the
+          // application isn't silently dropped.
+          const subject = encodeURIComponent('Nation Builders application — ' + (payload.organization || 'Untitled organization'));
+          const body = encodeURIComponent(
+            'Organization: ' + payload.organization + '\n' +
+            'Industry: ' + payload.industry + '\n' +
+            'Employees: ' + payload.employees + '\n' +
+            'Contact: ' + payload.contact + '\n' +
+            'Email: ' + payload.email
+          );
+          window.open('mailto:lk_support@greatplacetowork.com?subject=' + subject + '&body=' + body);
+        }
+        this.setState({ formSubmitted: true });
+      },
       resetForm: () => this.setState({ formSubmitted: false, formStep: 0, formData: { org: '', industry: '', employees: '', contact: '', email: '', eligLegal: false, eligSurvey: false, eligAudit: false, eligAudited: false } })
     };
   }
