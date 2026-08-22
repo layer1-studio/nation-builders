@@ -19,126 +19,166 @@
 <x-dc>
 <helmet>
   <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     :root {
+      /* Brand Primary */
+      --color-brand-red: #FF1628;
+      --color-brand-black: #11131C;
+      --color-brand-white: #FFFFFF;
+      /* Grays */
+      --color-gray-1: #F5F8F6;
+      --color-gray-2: #EDF1EF;
+      --color-gray-3: #DEE5E4;
+      --color-gray-4: #C4CCCC;
+      --color-gray-5: #A6AEB2;
+      --color-gray-6: #879298;
+      --color-gray-7: #69737A;
+      --color-gray-8: #555E66;
+      --color-gray-9: #444C54;
+      --color-gray-10: #32383F;
+      --color-gray-11: #22262D;
+      /* Semantic */
       --color-bg: #ffffff;
-      --color-surface: #f5f4f2;
-      --color-surface-2: #eeebe8;
-      --color-text: #111111;
-      --color-text-secondary: #5a5a5a;
-      --color-text-muted: #888888;
-      --color-accent: #CC1F26;
-      --color-accent-600: #a91b21;
-      --color-accent-700: #8a1519;
-      --color-accent-800: #6b1014;
-      --color-divider: rgba(0,0,0,0.10);
-      --color-neutral-200: #e8e4e1;
-      --color-neutral-300: #d8d3cf;
-      --color-neutral-400: #b0a9a4;
-      --color-neutral-700: #4a4540;
+       --color-surface: #F5F8F6;
+      --color-surface-2: #EDF1EF;
+      --color-text: #11131C;
+      --color-text-secondary: #444C54;
+      --color-text-muted: #879298;
+      --color-footer: #11131C;
+      --color-accent: #FF1628;
+      --color-accent-600: #d4121f;
+      --color-accent-700: #b00e19;
+      --color-accent-800: #8a0b13;
+      --color-divider: rgba(17,19,28,0.10);
+      --color-neutral-200: #DEE5E4;
+      --color-neutral-300: #C4CCCC;
+      --color-neutral-400: #A6AEB2;
+      --color-neutral-700: #444C54;
       --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: 'Playfair Display', Georgia, serif;
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --radius-sm: 6px;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 4px;
       --radius-pill: 980px;
-      --shadow-card: 0 2px 12px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.05);
-      --shadow-card-hover: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+     --shadow-card: 0 2px 12px rgba(17,19,28,0.07), 0 1px 3px rgba(17,19,28,0.05);
+      --shadow-card-hover: 0 8px 32px rgba(17,19,28,0.12), 0 2px 8px rgba(17,19,28,0.08);
     }
     [data-theme="dark"] {
-      --color-bg: #0e0e0e;
-      --color-surface: #1a1a1a;
-      --color-surface-2: #222222;
-      --color-text: #f0efed;
-      --color-text-secondary: #a0a0a0;
-      --color-text-muted: #666666;
-      --color-divider: rgba(255,255,255,0.10);
-      --color-neutral-200: #2a2a2a;
-      --color-neutral-300: #333333;
-      --color-neutral-400: #555555;
-      --color-neutral-700: #cccccc;
-      --shadow-card: 0 2px 12px rgba(0,0,0,0.3);
+      --color-bg: #11131C;
+      --color-surface: #22262D;
+      --color-surface-2: #32383F;
+      --color-text: #F5F8F6;
+      --color-brand-black: #F5F8F6;
+      --color-text-secondary: #A6AEB2;
+      --color-text-muted: #69737A;
+      --color-divider: rgba(245,248,246,0.10);
+      --color-neutral-200: #32383F;
+      --color-neutral-300: #444C54;
+      --color-neutral-400: #555E66;
+      --color-neutral-700: #C4CCCC;
+      --color-footer: #11131C;
+      --shadow-card: 0 2px 12px rgba(0,0,0,0.4);
     }
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; -webkit-font-smoothing: antialiased; font-family: var(--font-body); }
-    ::selection { background: color-mix(in srgb, var(--color-accent) 20%, transparent); }
-    /* Badge chip */
+    body { margin: 0; -webkit-font-smoothing: antialiased; font-family: var(--font-body); font-size: 18px; }
+    main p, main li { font-size: 18px !important; }
+    main button, main input { font-size: 16px !important; }
+    .nb-nav-link { font-size: 18px !important; font-weight: 700 !important; }
+    ::selection { background: rgba(255,22,40,0.18); }
+
+    /* ── BADGE CHIPS ── */
     .nb-badge {
       display: inline-block;
       font-family: var(--font-heading);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--color-accent);
-      border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
-      background: color-mix(in srgb, var(--color-accent) 6%, transparent);
-      border-radius: 20px;
-      padding: 4px 12px;
+      border: 1px solid rgba(255,22,40,0.35);
+      background: rgba(255,22,40,0.06);
+      border-radius: 20px; padding: 4px 12px;
     }
     .nb-badge-light {
       display: inline-block;
       font-family: var(--font-heading);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 20px;
-      padding: 4px 12px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px; padding: 4px 12px;
     }
     /* Buttons */
     .btn-primary {
       display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--font-heading); font-weight: 600; font-size: 12px;
-      letter-spacing: 0.1em; text-transform: uppercase;
+      font-family: var(--font-heading); font-weight: 700; font-size: 13px;
+      letter-spacing: 0.06em;
       background: var(--color-accent); color: #fff;
-      border: none; border-radius: 3px;
-      padding: 12px 22px; cursor: pointer;
+      border: none; border-radius: 0;
+      padding: 13px 28px; cursor: pointer;
       transition: background 0.2s ease, transform 0.15s ease;
       text-decoration: none;
     }
     .btn-primary:hover { background: var(--color-accent-600); transform: translateY(-1px); }
     .btn-outline {
       display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--font-heading); font-weight: 600; font-size: 12px;
-      letter-spacing: 0.1em; text-transform: uppercase;
+      font-family: var(--font-heading); font-weight: 600; font-size: 13px;
+      letter-spacing: 0.06em;
       background: transparent; color: var(--color-text);
-      border: 1.5px solid var(--color-text); border-radius: 3px;
-      padding: 11px 22px; cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+      border: 1.5px solid var(--color-gray-3); border-radius: 0;
+      padding: 12px 28px; cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
-    .btn-outline:hover { background: var(--color-text); color: var(--color-bg); transform: translateY(-1px); }
+    .btn-outline:hover { background: var(--color-gray-2); border-color: var(--color-gray-4); }
     .btn-outline-white {
       display: inline-flex; align-items: center; gap: 6px;
-      font-family: var(--font-heading); font-weight: 600; font-size: 12px;
-      letter-spacing: 0.1em; text-transform: uppercase;
+      font-family: var(--font-heading); font-weight: 600; font-size: 13px;
+      letter-spacing: 0.06em;
       background: transparent; color: #fff;
-      border: 1.5px solid rgba(255,255,255,0.7); border-radius: 3px;
-      padding: 11px 22px; cursor: pointer;
-      transition: background 0.2s ease, transform 0.15s ease;
+      border: 1.5px solid rgba(255,255,255,0.7); border-radius: 0;
+      padding: 12px 28px; cursor: pointer;
+      transition: background 0.2s ease;
     }
-    .btn-outline-white:hover { background: rgba(255,255,255,0.15); transform: translateY(-1px); }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 6px;
       font-family: var(--font-heading); font-weight: 500; font-size: 12px;
-      letter-spacing: 0.08em; text-transform: uppercase;
+      letter-spacing: 0.06em;
       background: var(--color-surface); color: var(--color-text);
-      border: none; border-radius: 3px;
-      padding: 10px 16px; cursor: pointer;
+      border: none; border-radius: 0;
+      padding: 10px 18px; cursor: pointer;
       transition: background 0.2s ease;
     }
     .btn-ghost:hover { background: var(--color-neutral-200); }
     /* Nav link */
     .nb-nav-link {
       background: none; border: none; cursor: pointer;
-      font-family: var(--font-heading); font-weight: 500; font-size: 11px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 4px 0; color: var(--color-text-secondary);
+      font-family: var(--font-heading); font-weight: 500; font-size: 13px;
+      letter-spacing: 0.02em;
+      padding: 4px 0; color: var(--color-brand-black);
       transition: color 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
     }
     .nb-nav-link:hover { color: var(--color-accent); }
+    .header-inner { gap: 24px !important; }
+    .header-logo { flex: none; }
+    .header-primary-nav { flex: 1 1 auto !important; min-width: 0; justify-content: flex-start !important; gap: 22px !important; }
+    .header-actions { flex: none; margin-left: auto; }
+    .header-actions button { white-space: nowrap; }
+    .methodology-culture-section { background: var(--color-bg) !important; }
+    .methodology-culture-heading { color: var(--color-accent); font-weight: 800 !important; font-size: clamp(30px, 4vw, 48px) !important; line-height: 1.25 !important; }
+    .methodology-culture-heading span { display: block; }
+    .methodology-culture-card { width: 92%; background: var(--color-gray-1) !important; border-radius: 32px !important; box-shadow: none !important; padding: 32px !important; }
+    .methodology-culture-card:nth-child(2) { margin-left: auto; }
+    .methodology-culture-card h4 { color: var(--color-accent); font-size: 26px !important; }
+    .methodology-culture-card .nb-list-item { border-left: 0; padding-left: 0; margin-bottom: 4px; font-size: 18px; line-height: 1.45; }
+    .methodology-culture-card img { max-width: 280px !important; }
+    @media (max-width: 1180px) and (min-width: 881px) {
+      .header-inner { gap: 16px !important; padding: 0 20px !important; }
+      .header-primary-nav { gap: 12px !important; }
+      .header-primary-nav .nb-nav-link { font-size: 12px !important; }
+      .header-actions { gap: 6px !important; }
+      .header-actions .btn-ghost { padding: 10px 14px !important; }
+      .header-actions .btn-primary { padding: 10px 16px !important; }
+    }
     /* Section heading mix */
     .heading-serif-mix .serif-part {
       font-family: var(--font-serif); font-style: italic; color: var(--color-accent);
@@ -150,11 +190,10 @@
       transition: box-shadow 0.25s ease, transform 0.2s ease;
     }
     .nb-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
-    /* Divider line */
-    .nb-divider {
-      border: none; border-top: 1px solid var(--color-divider); margin: 0;
-    }
-    /* Accent left border list item */
+    /* ── DIVIDER ── */
+    .nb-divider { border: none; border-top: 1px solid var(--color-divider); margin: 0; }
+
+    /* ── LIST ITEMS ── */
     .nb-list-item {
       font-size: 14px; margin: 0 0 10px; line-height: 1.6;
       padding-left: 16px; border-left: 2.5px solid var(--color-accent);
@@ -173,20 +212,15 @@
       width: 100%; box-sizing: border-box; min-height: 46px;
       padding: 11px 16px; font-size: 15px; font-family: var(--font-body);
       background: var(--color-surface); color: var(--color-text);
-      border: 1.5px solid transparent; border-radius: 8px;
+      border: 1.5px solid transparent; border-radius: 6px;
       outline: none; transition: border-color 0.2s ease;
     }
     .nb-input:focus { border-color: var(--color-accent); background: var(--color-bg); }
-    /* Progress bar */
-    .nb-progress-bar {
-      height: 3px; background: var(--color-neutral-200); border-radius: 2px;
-      margin-bottom: 28px; overflow: hidden;
-    }
-    .nb-progress-fill {
-      height: 100%; background: var(--color-accent); border-radius: 2px;
-      transition: width 0.4s ease;
-    }
-    /* Contact card */
+    /* ── PROGRESS BAR ── */
+    .nb-progress-bar { height: 3px; background: var(--color-neutral-200); border-radius: 2px; margin-bottom: 28px; overflow: hidden; }
+    .nb-progress-fill { height: 100%; background: var(--color-accent); border-radius: 2px; transition: width 0.4s ease; }
+
+    /* ── CONTACT CARDS ── */
     .nb-contact-card {
       display: flex; gap: 14px; align-items: flex-start;
       background: var(--color-bg); border: 1px solid var(--color-neutral-200);
@@ -229,19 +263,288 @@
     /* Hero floating badge card */
     .nb-hero-badge-card {
       position: absolute; bottom: 32px; right: 32px;
-      background: #fff; border-radius: 12px;
+      background: #fff; border-radius: 8px;
       padding: 14px 18px;
       display: flex; align-items: center; gap: 14px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-      max-width: 260px;
-      z-index: 3;
+       box-shadow: 0 8px 32px rgba(17,19,28,0.18);
+      max-width: 260px; z-index: 3;
     }
     .nb-hero-badge-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: var(--color-accent); display: flex;
-      align-items: center; justify-content: center; flex: none;
+      width: 44px; height: 44px; border-radius: 6px;
+      background: var(--color-accent);
+      display: flex; align-items: center; justify-content: center; flex: none;
     }
-    /* Smooth scrolling + focus */
+    /* ── PURPOSE ICON GRID ── */
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .purpose-cell {
+      padding: 48px 40px;
+      text-align: center;
+      border-right: 1px solid var(--color-gray-3);
+      border-bottom: 1px solid var(--color-gray-3);
+    }
+    .purpose-cell:nth-child(3n) { border-right: none; }
+    .purpose-cell:nth-child(n+4) { border-bottom: none; }
+    .purpose-icon {
+      width: 72px; height: 72px;
+      margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .purpose-grid { grid-template-columns: 1fr; }
+      .purpose-cell { border-right: none; }
+    }
+
+    /* ── BENEFITS DARK SECTION ── */
+    .benefits-section {
+      background: #1a1f2e;
+      padding: 90px 24px;
+      color: #fff;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 56px;
+      margin-bottom: 48px;
+    }
+    .benefits-grid-bottom {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px 56px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .benefit-cell { text-align: center; }
+    .benefit-icon {
+      width: 64px; height: 64px;
+      margin: 0 auto 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .benefits-grid-bottom { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 880px) {
+      .home-hero-grid { grid-template-columns: 1fr !important; padding: 0 24px !important; min-height: 0 !important; }
+      .home-hero-grid > div:first-child { padding: 24px 0 32px !important; }
+      .home-hero-grid > div:nth-child(2) { display: none; }
+      .home-hero-grid > div:last-child { padding: 0 0 48px !important; }
+      .home-image-strip { padding: 24px 24px 48px !important; }
+      .home-image-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+      .recognition-layout { grid-template-columns: 1fr !important; gap: 40px !important; padding: 48px 24px !important; }
+      .about-mission-grid, .about-methodology-grid { grid-template-columns: 1fr !important; }
+      .contact-layout { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .contact-form-grid { grid-template-columns: 1fr !important; }
+        .contact-page { width: 100%; max-width: 100%; overflow: hidden; padding: 40px 24px 72px !important; }
+        .contact-intro h1 { font-size: 28px !important; overflow-wrap: anywhere; }
+        .contact-info-row { min-width: 0; }
+        .contact-info-row span { min-width: 0; overflow-wrap: anywhere; }
+        .contact-form-panel { min-width: 0; padding: 24px !important; }
+        .contact-qr { flex-wrap: wrap; gap: 24px !important; padding: 24px !important; }
+        .contact-qr p { overflow-wrap: anywhere; }
+        .organization-detail-header { align-items: flex-start !important; flex-direction: column !important; }
+        .organization-detail-grid { grid-template-columns: 1fr !important; }
+        .methodology-culture-card { width: 100%; padding: 24px !important; border-radius: 24px !important; }
+        .methodology-culture-card h4 { font-size: 22px !important; }
+        .methodology-culture-card .nb-list-item { font-size: 16px; }
+        .methodology-culture-heading { font-size: 30px !important; }
+      .culture-check-card { grid-template-columns: 1fr !important; padding: 28px 24px !important; gap: 24px !important; }
+    }
+
+    [data-theme="dark"] main [style*="background: #fff"] { background: var(--color-surface) !important; }
+    [data-theme="dark"] main [style*="background: #fff"] { color: var(--color-brand-black) !important; }
+    [data-theme="dark"] main [style*="background: #fff"] h3,
+    [data-theme="dark"] main [style*="background: #fff"] h4,
+    [data-theme="dark"] main [style*="background: #fff"] p,
+    [data-theme="dark"] main [style*="background: #fff"] li,
+    [data-theme="dark"] main [style*="background: #fff"] button,
+    [data-theme="dark"] main [style*="background: #fff"] strong { color: var(--color-brand-black) !important; }
+    [data-theme="dark"] main svg[style*="stroke:var(--color-brand-black)"] { stroke: var(--color-text) !important; }
+    [data-theme="dark"] main text[fill="#11131C"] { fill: var(--color-text) !important; }
+    [data-theme="dark"] .journey-step-box,
+    [data-theme="dark"] .journey-arrow-track { color: #11131C !important; }
+    [data-theme="dark"] .insights-page > div > button,
+    [data-theme="dark"] .about-page > div > button { color: #11131C !important; }
+    [data-theme="dark"] .insights-page > div > button span,
+    [data-theme="dark"] .about-page > div > button span { color: #11131C !important; }
+    [data-theme="dark"] .insights-page > div > button svg,
+    [data-theme="dark"] .about-page > div > button svg { stroke: #11131C !important; }
+    [data-theme="dark"] .insights-page [style*="background: #fff"] h4,
+    [data-theme="dark"] .insights-page [style*="background: #fff"] p,
+    [data-theme="dark"] .about-page [style*="background: #fff"] h3,
+    [data-theme="dark"] .about-page [style*="background: #fff"] h4,
+    [data-theme="dark"] .about-page [style*="background: #fff"] p { color: #11131C !important; }
+    [data-theme="dark"] .about-methodology-card-title,
+    [data-theme="dark"] .about-methodology-grid .nb-list-item,
+    [data-theme="dark"] .study-reports-toggle,
+    [data-theme="dark"] .study-report-title,
+    [data-theme="dark"] .study-report-description,
+    [data-theme="dark"] .press-release-date,
+    [data-theme="dark"] .press-release-title { color: #11131C !important; }
+
+    /* ── ELIGIBILITY SPLIT ── */
+    .eligibility-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 64px);
+    }
+    .eligibility-left {
+      padding: 80px 60px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .eligibility-right {
+      position: relative;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 80px 60px;
+      overflow: hidden;
+    }
+    .eligibility-right > div {
+      width: 100%;
+      text-align: center;
+    }
+    .eligibility-watermark-top,
+    .eligibility-watermark-bottom {
+      font-family: var(--font-heading); font-weight: 800; font-size: 42px;
+      color: rgba(255,22,40,0.15); white-space: nowrap;
+      user-select: none; line-height: 1;
+    }
+    .eligibility-main-text {
+      font-family: var(--font-heading); font-weight: 800; font-size: 48px;
+      color: var(--color-accent); line-height: 1.1; text-align: center;
+      margin: 12px 0;
+    }
+    /* ── EVALUATION CRITERIA ── */
+    .criteria-layout {
+      display: grid;
+      grid-template-columns: 35% 65%;
+      min-height: 0;
+    }
+    .criteria-title-panel {
+      background: var(--color-gray-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 48px 0;
+      padding: 48px;
+    }
+    .criteria-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(42px, 4vw, 58px);
+      color: var(--color-accent);
+      line-height: 1.1;
+      margin: 0;
+      text-align: center;
+    }
+    .criteria-content {
+      padding: 48px 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .criteria-group {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      column-gap: 24px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+    .criteria-group:last-child {
+      margin-bottom: 0;
+    }
+    .criteria-group h2 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 30px;
+      color: var(--color-accent);
+      margin: 0 0 8px;
+    }
+    .criteria-group div {
+      font-size: 17px;
+      color: var(--color-brand-black);
+      line-height: 1.8;
+      word-spacing: 0.04em;
+    }
+    .criteria-divider {
+      border: none;
+      border-top: 1px solid var(--color-gray-3);
+      margin: 0 0 24px 184px;
+    }
+    @media (max-width: 768px) {
+      .eligibility-split { grid-template-columns: 1fr; }
+      .eligibility-left { padding: 40px 24px; }
+      .eligibility-right { min-height: 200px; padding: 40px 24px; }
+      .eligibility-main-text { font-size: 32px; }
+      .eligibility-watermark-top, .eligibility-watermark-bottom { font-size: 26px; }
+      .criteria-layout { grid-template-columns: 1fr; min-height: 0; }
+      .criteria-title-panel { min-height: 260px; margin: 0; padding: 40px 24px; }
+      .criteria-content { padding: 48px 24px; }
+      .criteria-group { grid-template-columns: 1fr; row-gap: 8px; }
+      .criteria-group h2 { font-size: 28px; }
+      .criteria-group div { font-size: 15px; }
+      .criteria-divider { margin-left: 0; }
+    }
+
+    /* ── JOURNEY TIMELINE (Full Red) ── */
+    .journey-section {
+      background: var(--color-accent);
+      padding: 80px 24px;
+      color: #fff;
+    }
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 40px 0 32px;
+    }
+    .journey-step-label {
+      font-family: var(--font-heading); font-weight: 800; font-size: 22px;
+      color: #fff; margin-bottom: 12px;
+    }
+    .journey-step-box {
+      background: #fff;
+      padding: 20px 24px;
+      font-family: var(--font-heading); font-weight: 500; font-size: 14px;
+      color: var(--color-brand-black);
+      line-height: 1.5;
+      min-height: 80px;
+      display: flex; align-items: center;
+      white-space: pre-line;
+    }
+    .journey-arrow-row {
+      display: flex;
+      align-items: center;
+      margin-top: 0;
+    }
+    .journey-arrow-track {
+      flex: 1;
+      background: rgba(255,255,255,0.9);
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 0;
+      position: relative;
+      font-family: var(--font-heading); font-weight: 800; font-size: 18px;
+      letter-spacing: 0.04em;
+      color: var(--color-brand-black);
+    }
+    .journey-arrow-head {
+      width: 0; height: 0;
+      border-top: 44px solid transparent;
+      border-bottom: 44px solid transparent;
+      border-left: 52px solid rgba(255,255,255,0.9);
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .journey-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── GLOBAL ── */
     html { scroll-behavior: smooth; }
     button:focus-visible, input:focus-visible {
       outline: 2px solid var(--color-accent); outline-offset: 2px;
@@ -254,24 +557,26 @@
 </helmet>
 <div data-theme="{{ theme }}" style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); min-height: 100vh; letter-spacing: -0.01em; transition: background 0.3s, color 0.3s;">
   <!-- HEADER -->
-  <header style="position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid var(--color-divider);">
-    <div style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; gap: 16px; height: 56px;">
-      <button onClick="{{ goHome }}" style="background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex: none;">
-        <img src="assets/logo.jpg" alt="Nation Builders — Powered by People" style="height: 28px; width: auto; display: block; mix-blend-mode: multiply;">
+ <header style="position: sticky; top: 0; z-index: 40; background: var(--color-bg); border-bottom: 1px solid var(--color-gray-3);">
+    <div class="header-inner" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; gap: 16px; height: 64px;">
+      <!-- Logo -->
+      <button class="header-logo" onClick="{{ goGreatPlaceToWork }}" style="background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex: none;">
+        <img src="assets/GPTW_box_logo_RED.png" alt="Nation Builders — Powered by People" style="height: 65px; width: auto; display: block;">
       </button>
-      <nav aria-label="Primary" style="display: {{ desktopNavDisplay }}; align-items: center; gap: 28px;">
-        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
-          <button onClick="{{ item.onClick }}" class="nb-nav-link" style="color: {{ item.color }};">
+      <!-- Desktop Nav -->
+      <nav class="header-primary-nav" aria-label="Primary" style="display: {{ desktopNavDisplay }}; align-items: center; gap: 32px; flex: 1; justify-content: center;">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="7">
+          <button onClick="{{ item.onClick }}" class="nb-nav-link" style="color: {{ item.color }}; font-weight: 500; font-size: 14px; letter-spacing: 0;">
             {{ item.label }}
           </button>
         </sc-for>
       </nav>
-      <div style="display: {{ desktopNavDisplay }}; align-items: center; gap: 10px;">
-        <button onClick="{{ toggleTheme }}" class="btn-ghost">
+      <div class="header-actions" style="display: {{ desktopNavDisplay }}; align-items: center; gap: 10px;">
+        <button onClick="{{ toggleTheme }}" class="btn-ghost" style="font-size: 16px; padding: 12px 22px;">
           {{ themeToggleLabel }}
         </button>
-        <button onClick="{{ goApply }}" class="btn-primary">
-          Apply Now →
+        <button onClick="{{ goContact }}" class="btn-primary" style="font-size: 16px; padding: 12px 28px;">
+          Register Now
         </button>
       </div>
       <button onClick="{{ toggleMobileMenu }}" aria-label="Menu" style="display: {{ mobileNavDisplay }}; background: none; border: none; width: 36px; height: 36px; align-items: center; justify-content: center; cursor: pointer; color: var(--color-text);">
@@ -282,18 +587,19 @@
         </svg>
       </button>
     </div>
-    <div style="display: {{ mobileMenuDisplay }}; flex-direction: column; border-top: 1px solid var(--color-divider); padding: 8px 28px 24px; background: var(--color-bg);">
-      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
-        <button onClick="{{ item.onClick }}" style="background: none; border: none; text-align: left; cursor: pointer; padding: 14px 0; font-size: 15px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: {{ item.color }}; font-family: var(--font-heading); border-bottom: 1px solid var(--color-divider);">
+    <!-- Mobile Menu -->
+    <div style="display: {{ mobileMenuDisplay }}; flex-direction: column; border-top: 1px solid var(--color-gray-3); padding: 8px 32px 24px; background: var(--color-bg);">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="7">
+         <button onClick="{{ item.onClick }}" style="background: none; border: none; text-align: left; cursor: pointer; padding: 14px 0; font-size: 15px; font-weight: 500; color: {{ item.color }}; font-family: var(--font-heading); border-bottom: 1px solid var(--color-gray-3);">
           {{ item.label }}
         </button>
       </sc-for>
       <div style="display: flex; gap: 10px; margin-top: 20px;">
         <button onClick="{{ toggleTheme }}" class="btn-ghost" style="flex: 1; justify-content: center;">
-          Switch to {{ themeToggleLabel }} mode
+           {{ themeToggleLabel }} mode
         </button>
         <button onClick="{{ goApply }}" class="btn-primary" style="flex: 1; justify-content: center;">
-          Apply Now →
+          Register Now
         </button>
       </div>
     </div>
@@ -301,115 +607,273 @@
   <!-- HOME -->
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
     <main data-screen-label="Home">
-      <!-- HERO — full-bleed image with overlay -->
-      <section style="position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden;">
-        <img src="assets/human-work.avif" alt="Sigiriya rock, Sri Lanka" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
-        <!-- Dark gradient overlay -->
-        <div style="position: absolute; inset: 0; background: linear-gradient(105deg, rgba(10,3,3,0.88) 0%, rgba(120,15,18,0.72) 55%, rgba(10,3,3,0.60) 100%); z-index: 1;"></div>
-        <!-- Content -->
-        <div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: {{ heroPadding }}; padding-left: 48px; padding-right: 48px; width: 100%;">
-          <!-- Top badges -->
-          <div style="display: flex; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;">
-            <div style="font-size: 13px; letter-spacing: 0; background-color: #ffffff; color: #000000; font-weight: 500; margin-bottom: 14px; padding: 8px 16px; border-radius: 20px;">Great Place To Work® Sri Lanka</div>
+      <!-- ══ HERO: Split layout (logo left, text right) ══ -->
+      <section style="background: var(--color-bg); padding: 64px 0 0;">
+        <div class="home-hero-grid" style="max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: center; min-height: 460px;">
+          <!-- Left: Nation Builders logo + tagline -->
+          <div style="padding-right: 64px; display: flex; align-items: center; justify-content: center;">
+            <img src="assets/Nation Builders.png" alt="Nation Builders — Powered by People" style="display: block; width: min(100%, 520px); height: auto;">
           </div>
-          <!-- Hero headline -->
-          <div style="max-width: 640px;">
-            <h1 style="margin: 0; line-height: 1.0; font-weight: 800; letter-spacing: -0.03em;">
-              <span style="display: block; font-family: var(--font-heading); font-size: {{ heroTitleSize }}; color: #ffffff;">Nation</span>
-              <span style="display: block; font-family: var(--font-serif); font-style: italic; font-size: {{ heroTitleSize }}; color: var(--color-accent); margin-top: -6px;">Builders.</span>
-            </h1>
-            <p style="font-size: 17px; line-height: 1.65; color: rgba(255,255,255,0.80); max-width: 44ch; margin: 28px 0 0;">
-              Every nation's strength lies in its people. This is an inspiration for transformation — a catalyst for shaping the future of Sri Lanka.
+          <!-- Vertical divider -->
+          <div style="background: var(--color-gray-4); width: 1px; align-self: stretch;"></div>
+          <!-- Right: Description + CTA -->
+          <div style="padding-left: 64px;">
+            <p style="font-size: 16px; line-height: 1.7; color: var(--color-brand-black); margin: 0 0 20px; font-weight: 400;">
+              Every nation's strength lies in its people.
+              </p>
+            <p style="font-size: 15px; line-height: 1.7; color: var(--color-text-secondary); margin: 0 0 16px;">
+              At its heart, this initiative is an inspiration for transformation - a catalyst for shaping the future of Sri Lanka through the collective strength of its people.
             </p>
-            <p style="font-size: 17px; line-height: 1.65; color: rgba(255,255,255,0.75); max-width: 44ch; margin: 12px 0 0;">
-              A movement to recognize bold leadership and the ability to fuel change that extends far beyond the workplace.
+            <p style="font-size: 15px; line-height: 1.7; color: var(--color-text-secondary); margin: 0 0 32px;">
+              It is a movement to recognize bold leadership, commitment to community development, and their ability to fuel change that extends far beyond the workplace.
             </p>
-            <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px;">
-              <button onClick="{{ goApply }}" class="btn-primary" style="font-size: 12px;">
-                Register Now →
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <button onClick="{{ goApply }}" class="btn-outline" style="font-weight: 700; font-size: 14px; border-color: var(--color-gray-9); color: var(--color-brand-black);">
+                Register Now
               </button>
-              <button onClick="{{ goMethodology }}" class="btn-outline-white" style="font-size: 12px;">
-                View Methodology →
+              <button onClick="{{ goCriteria }}" class="btn-outline" style="font-weight: 700; font-size: 14px; border-color: var(--color-gray-9); color: var(--color-brand-black);">
+                View Evaluation Criteria
               </button>
             </div>
           </div>
         </div>
-        <!-- Floating badge card -->
-        <div class="nb-hero-badge-card">
-          <div class="nb-hero-badge-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="6"></circle>
-              <path d="M8 14l-3 7h14l-3-7"></path>
-            </svg>
+         </section>
+
+      <!-- ══ IMAGE STRIP ══ -->
+      <section class="home-image-strip" style="background: var(--color-bg); padding: 32px 48px 64px; max-width: 1200px; margin: 0 auto;">
+        <div class="home-image-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 2px;">
+            <img src="assets/hero-sigiriya-red.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(20%);"/>
           </div>
-          <div>
-            <div style="font-family: var(--font-heading); font-weight: 700; font-size: 13px; color: #111; line-height: 1.3;">Great Place To Work®</div>
-            <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-top: 2px;">Sri Lanka Certified Program</div>
+          <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 2px;">
+            <img src="assets/team-gray.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"/>
+          </div>
+          <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 2px;">
+            <img src="assets/kids-gray.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"/>
+          </div>
+          <div style="aspect-ratio: 4/3; overflow: hidden; border-radius: 2px;">
+            <img src="assets/train-viaduct-gray.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"/>
           </div>
         </div>
       </section>
-      <!-- PURPOSE SECTION -->
-      <section style="background: var(--color-surface); padding: 100px 24px;">
-        <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-          <div style="margin-bottom: 16px;"><span class="nb-badge">Purpose</span></div>
-          <h2 style="font-size: 40px; font-weight: 700; letter-spacing: -0.025em; max-width: 20ch; margin: 0 auto 12px; line-height: 1.15;" class="heading-serif-mix">
-            A national movement for <span class="serif-part">lasting progress.</span>
-          </h2>
-          <p style="font-size: 17px; color: var(--color-text-secondary); max-width: 52ch; margin: 0 auto 56px; line-height: 1.6;">Every nation's strength lies in its people. This is an inspiration for transformation — a catalyst for shaping the future of Sri Lanka.</p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; text-align: left;">
-            <sc-for list="{{ purposeHighlights }}" as="item" hint-placeholder-count="6">
-              <div class="nb-card" style="padding: 28px 28px 26px;">
-                <div style="font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: 28px; color: var(--color-accent); margin-bottom: 14px; line-height: 1;">{{ item.n }}</div>
-                <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-text);">{{ item.text }}</p>
+      <!-- ══ PURPOSE SECTION ══ -->
+      <section style="background: var(--color-bg); padding: 80px 24px;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <h2 style="font-family: var(--font-heading); font-size: 48px; font-weight: 800; color: var(--color-accent); text-align: center; margin: 0 0 56px; letter-spacing: -0.01em;">Purpose</h2>
+          <div class="purpose-grid">
+            <!-- Row 1 -->
+            <div class="purpose-cell">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
+                  <circle cx="36" cy="36" r="34" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M22 30 Q28 16 36 20 Q44 16 50 30 L50 44 Q44 52 36 52 Q28 52 22 44 Z" stroke="#FF1628" stroke-width="2" fill="none"/>
+                  <path d="M28 36 L36 20 L44 36" stroke="#FF1628" stroke-width="2" fill="none"/>
+                  <line x1="20" y1="52" x2="52" y2="52" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M30 52 L26 60 M42 52 L46 60" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="50" cy="18" r="4" fill="#FF1628"/>
+                  <path d="M46 18 Q42 10 50 14" stroke="#FF1628" stroke-width="1.5" fill="none"/>
+                  <path d="M54 18 Q58 10 54 22" stroke="#FF1628" stroke-width="1.5" fill="none"/>
+                </svg>
               </div>
-            </sc-for>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Identify &amp; celebrate organizations whose contributions uplift the nation.</p>
+            </div>
+            <div class="purpose-cell">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
+                  <rect x="10" y="42" width="10" height="20" stroke="#FF1628" stroke-width="2" rx="1"/>
+                  <rect x="24" y="32" width="10" height="30" stroke="#FF1628" stroke-width="2" rx="1"/>
+                  <rect x="38" y="20" width="10" height="42" stroke="#FF1628" stroke-width="2" rx="1"/>
+                  <rect x="52" y="10" width="10" height="52" stroke="#FF1628" stroke-width="2" rx="1"/>
+                  <path d="M10 52 L30 36 L44 42 L62 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="62" cy="10" r="3" fill="#FF1628"/>
+                </svg>
+              </div>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Highlight impactful work that drives economic growth and community development.</p>
+            </div>
+            <div class="purpose-cell">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
+                  <rect x="10" y="38" width="52" height="10" stroke="#FF1628" stroke-width="2" rx="1"/>
+                  <rect x="10" y="52" width="52" height="10" stroke="#FF1628" stroke-width="2" rx="1"/>
+                  <rect x="10" y="24" width="52" height="10" stroke="#FF1628" stroke-width="2" rx="1"/>
+                  <path d="M48 10 L56 20 L44 20" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M48 10 L40 28" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Encourage emulation by inspiring businesses across Sri Lanka to follow these examples, fostering collective progress and stability.</p>
+            </div>
+            <!-- Row 2 -->
+            <div class="purpose-cell">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
+                  <path d="M36 10 Q10 24 10 46 Q10 60 36 65 Q62 60 62 46 Q62 24 36 10Z" stroke="#FF1628" stroke-width="2" fill="none"/>
+                  <path d="M20 38 Q28 24 36 38 Q44 52 52 38" stroke="#FF1628" stroke-width="2" fill="none"/>
+                  <line x1="36" y1="10" x2="36" y2="65" stroke="#FF1628" stroke-width="2"/>
+                  <line x1="10" y1="46" x2="62" y2="46" stroke="#FF1628" stroke-width="2"/>
+                </svg>
+              </div>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Inspire a vision for Sri Lanka's future as a thriving hub in South Asia, anchored by its talent pool.</p>
+            </div>
+            <div class="purpose-cell">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
+                  <circle cx="36" cy="30" r="18" stroke="#FF1628" stroke-width="2"/>
+                  <circle cx="36" cy="30" r="10" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M26 46 L20 62 L36 56 L52 62 L46 46" stroke="#FF1628" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                  <line x1="36" y1="12" x2="36" y2="6" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="54" y1="30" x2="60" y2="30" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="18" y1="30" x2="12" y2="30" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Showcase achievements that spark a national movement.</p>
+            </div>
+            <div class="purpose-cell">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
+                  <circle cx="36" cy="26" r="14" stroke="#FF1628" stroke-width="2" fill="none"/>
+                  <path d="M36 12 L36 8" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="24" y1="26" x2="36" y2="26" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M44 54 L52 38 L60 54" stroke="#FF1628" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                  <line x1="36" y1="40" x2="36" y2="52" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="20" y1="52" x2="52" y2="52" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Creating lasting progress – focus on generational impact for Sri Lanka's people and communities.</p>
+            </div>
           </div>
         </div>
       </section>
-      <!-- TIMELINE SECTION -->
+      
+      <!-- ══ BENEFITS (DARK) ══ -->
+      <section class="benefits-section">
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <h2 style="font-family: var(--font-heading); font-size: 48px; font-weight: 800; color: #fff; text-align: center; margin: 0 0 64px; letter-spacing: -0.01em;">Benefits</h2>
+          <!-- Top 3 -->
+          <div class="benefits-grid">
+            <div class="benefit-cell">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Position your organization as a national icon—earning validation as a driver of Sri Lanka's progress.</p>
+            </div>
+            <div class="benefit-cell">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Be recognized as a trusted leader, showcasing tangible impact through social responsibility and inclusive growth—attracting partnerships, and opportunities.</p>
+            </div>
+            <div class="benefit-cell">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Gain strategic business advantage by building investor confidence and standing out in competitive markets.</p>
+            </div>
+          </div>
+          <!-- Bottom 2 -->
+          <div class="benefits-grid-bottom">
+            <div class="benefit-cell">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Improve customer loyalty through stronger emotional connection and shared purpose with an organization that recognizes and champions nation builders.</p>
+            </div>
+            <div class="benefit-cell">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
+                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Attract top talent while elevating employee trust, pride, retention, and advocacy.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ ELIGIBILITY CRITERIA (Split layout with watermark) ══ -->
+      <div class="eligibility-split">
+        <!-- Left: Checklist -->
+        <div class="eligibility-left" style="border-right: 1px solid var(--color-gray-3);">
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-black)" stroke-width="1.5" stroke-linecap="round" style="flex: none; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 8"/></svg>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-brand-black);">Registered legal entity in Sri Lanka</p>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-black)" stroke-width="1.5" stroke-linecap="round" style="flex: none; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 8"/></svg>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-brand-black);">Submission of the most recent audited annual accounts before selection period.</p>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-black)" stroke-width="1.5" stroke-linecap="round" style="flex: none; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 8"/></svg>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-brand-black);">Employee perception measured through employee feedback pulse survey during the period of 12 months prior to the time of selection.</p>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-black)" stroke-width="1.5" stroke-linecap="round" style="flex: none; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 8"/></svg>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-brand-black);">Great Place To Work® Culture Audit™ People Practice submission completed and evaluated by time of selection.</p>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-black)" stroke-width="1.5" stroke-linecap="round" style="flex: none; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><path d="M7 12l3.5 3.5L17 8"/></svg>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--color-brand-black);">Employee Experience Review (where applicable).</p>
+            </div>
+          </div>
+        </div>
+        <!-- Right: Watermark Text Design -->
+        <div class="eligibility-right">
+          <div class="eligibility-watermark-top">Eligibility Criteria</div>
+          <div class="eligibility-main-text">Eligibility Criteria</div>
+          <div class="eligibility-watermark-bottom">Eligibility Criteria</div>
+        </div>
+      </div>
+
+       <!-- ══ JOURNEY TO NATIONAL RECOGNITION (Full Red) ══ -->
+
       <sc-if value="{{ showHomeTimeline }}" hint-placeholder-val="{{ true }}">
-        <section style="padding: 100px 24px; background: var(--color-bg);">
-          <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-            <div style="margin-bottom: 16px;"><span class="nb-badge">Timeline</span></div>
-            <h2 style="font-size: 40px; font-weight: 700; letter-spacing: -0.025em; margin: 0 0 56px; line-height: 1.15;" class="heading-serif-mix">
-              The road to <span class="serif-part">publication.</span>
-            </h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; text-align: left; position: relative;">
+        <section class="journey-section">
+          <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 style="font-family: var(--font-heading); font-size: 36px; font-weight: 800; color: #fff; text-align: center; margin: 0 0 8px; letter-spacing: -0.01em;">Your Journey to National Recognition</h2>
+            <!-- Steps grid -->
+            <div class="journey-steps">
               <sc-for list="{{ timelineSteps }}" as="step" hint-placeholder-count="4">
                 <div>
-                  <div class="nb-timeline-node">{{ step.n }}</div>
-                  <div style="font-family: var(--font-heading); font-weight: 700; font-size: 18px; margin-bottom: 6px; letter-spacing: -0.01em;">{{ step.label }}</div>
-                  <div style="font-size: 13px; color: var(--color-accent); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">{{ step.detail }}</div>
+                  <div class="journey-step-label">Step {{ step.n }}</div>
+                  <div class="journey-step-box">{{ step.label }}<br>{{ step.detail }}</div>
                 </div>
               </sc-for>
+            </div>
+            <!-- Arrow row -->
+            <div class="journey-arrow-row">
+              <div class="journey-arrow-track">Register your interest now</div>
+              <div class="journey-arrow-head"></div>
             </div>
           </div>
         </section>
       </sc-if>
-      <!-- CLOSING BANNER (flag image) -->
-      <section style="padding: 0 24px 100px;">
-        <div style="position: relative; padding: 100px 60px; overflow: hidden; border-radius: var(--radius-lg); max-width: 1200px; margin: 0 auto;">
-          <img src="assets/flag.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
-          <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(140,18,22,0.95) 0%, rgba(90,10,13,0.88) 100%); z-index: 1;"></div>
-          <div style="position: relative; z-index: 2; max-width: 680px; margin: 0 auto; text-align: center;">
-            <span class="nb-badge-light" style="margin-bottom: 24px; display: inline-block;">Independence Day · February 2027</span>
-            <h2 style="color: #fff; font-size: 36px; font-weight: 800; letter-spacing: -0.02em; margin: 16px 0; font-family: var(--font-heading); line-height: 1.2;">The inaugural list publishes alongside Independence Day, February 2027.</h2>
-            <p style="font-size: 16px; color: rgba(255,255,255,0.82); margin-bottom: 36px; line-height: 1.6;">Registration closes 31 July 2026. Don't wait to put your organization forward.</p>
-            <button onClick="{{ goApply }}" class="btn-outline-white">
-              Start Your Application →
-            </button>
-          </div>
-        </div>
-      </section>
-      <!-- RED CTA BAND -->
-      <section style="background: var(--color-accent); padding: 56px 24px; margin: 0 0 0;">
+       <!-- ══ RED CTA BAND ══ -->
+      <section style="background: var(--color-accent); padding: 56px 24px;">
         <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
           <div>
-            <h3 style="color: #fff; font-size: 26px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.015em;">Ready to be a Nation Builder?</h3>
-            <p style="color: rgba(255,255,255,0.80); font-size: 15px; margin: 0;">Applications close 31 July 2026. Don't miss your chance.</p>
+            <h3 style="color: #fff; font-size: 26px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em;">Ready to be a Nation Builder?</h3>
+            <p style="color: rgba(255,255,255,0.80); font-size: 15px; margin: 0;">Applications close 31 August 2026. Don't miss your chance.</p>
           </div>
-          <button onClick="{{ goApply }}" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase; background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.7); border-radius: 3px; padding: 13px 28px; cursor: pointer; transition: background 0.2s ease; white-space: nowrap;" style-hover="background: rgba(255,255,255,0.15);">
-            APPLY NOW →
+          <button onClick="{{ goContact }}" class="btn-outline-white">
+            Register Now
           </button>
         </div>
       </section>
@@ -419,9 +883,9 @@
   <sc-if value="{{ isMethodology }}" hint-placeholder-val="{{ false }}">
     <main data-screen-label="Methodology">
       <div style="max-width: 1000px; margin: 0 auto; padding: 80px 24px 0; text-align: center;">
-        <div style="margin-bottom: 16px;"><span class="nb-badge">Methodology</span></div>
+        <div style="margin-bottom: 16px;"><span class="methodology-label" style="color: var(--color-accent);">Methodology</span></div>
         <h1 style="font-size: 44px; font-weight: 700; letter-spacing: -0.025em; max-width: 18ch; margin: 0 auto 16px; line-height: 1.15;" class="heading-serif-mix">
-          Three stages from registration to <span class="serif-part">recognition.</span>
+          Three stages from registration to recognition
         </h1>
         <p style="max-width: 56ch; color: var(--color-text-secondary); font-size: 17px; margin: 0 auto 56px; line-height: 1.65;">Every nomination moves through a structured, independently evaluated process before it is considered for the inaugural Nation Builders list.</p>
       </div>
@@ -443,36 +907,77 @@
               </div>
             </sc-for>
           </div>
-          <div style="text-align: center; margin-bottom: 40px;">
-            <div style="margin-bottom: 14px;"><span class="nb-badge">What Stage 01 Involves</span></div>
-            <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0;" class="heading-serif-mix">
-              Employee Feedback Survey &amp; <span class="serif-part">Culture Audit</span>
-            </h2>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
-            <div class="nb-card" style="padding: 32px; text-align: left;">
-              <h4 style="font-weight: 700; font-size: 17px; margin: 0 0 10px; letter-spacing: -0.01em;">Employee Feedback Survey</h4>
-              <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 18px; line-height: 1.6;">A survey that measures employees' perception towards the key workplace relationships.</p>
-              <sc-for list="{{ surveyTraits }}" as="item" hint-placeholder-count="5">
-                <p class="nb-list-item">{{ item }}</p>
-              </sc-for>
-            </div>
-            <div class="nb-card" style="padding: 32px; text-align: left;">
-              <h4 style="font-weight: 700; font-size: 17px; margin: 0 0 10px; letter-spacing: -0.01em;">Culture Audit</h4>
-              <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 18px; line-height: 1.6;">A submission that captures people practices to:</p>
-              <sc-for list="{{ cultureAuditTraits }}" as="item" hint-placeholder-count="6">
-                <p class="nb-list-item">{{ item }}</p>
-              </sc-for>
-            </div>
-          </div>
+          <!-- GPTW Culture Check Section -->
+  <section class="methodology-culture-section" style="padding: 80px 24px; background: var(--color-surface);">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div style="margin-bottom: 16px;"><span class="methodology-label" style="color: var(--color-accent);">Culture Check</span></div>
+      <h2 class="methodology-culture-heading heading-serif-mix" style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0;">
+        <span>Great Place To Work®</span><span>Employee Experience &amp; Culture Check</span>
+      </h2>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <!-- Card 1: Employee Feedback Survey -->
+      <div class="nb-card culture-check-card methodology-culture-card" style="padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+        <div>
+          <h4 style="font-weight: 700; font-size: 17px; margin: 0 0 10px; letter-spacing: -0.01em;">Employee Feedback Survey</h4>
+          <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 18px; line-height: 1.6;">A survey that measures employees' perception towards the key workplace relationships.</p>
+          <sc-for list="{{ surveyTraits }}" as="item" hint-placeholder-count="5">
+            <p class="nb-list-item">{{ item }}</p>
+          </sc-for>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Employees' Trust diagram — Credibility, Respect, Fairness, Pride, Camaraderie around Management">
+            <circle cx="110" cy="100" r="28" fill="#FF1628" opacity="0.15"/>
+            <circle cx="110" cy="100" r="18" fill="#FF1628" opacity="0.3"/>
+            <text x="110" y="105" text-anchor="middle" font-size="10" font-weight="700" fill="#FF1628">MGMT</text>
+            <circle cx="110" cy="30" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
+            <text x="110" y="34" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Credibility</text>
+            <line x1="110" y1="52" x2="110" y2="72" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
+            <circle cx="190" cy="70" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
+            <text x="190" y="74" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Respect</text>
+            <line x1="169" y1="82" x2="135" y2="92" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
+            <circle cx="170" cy="160" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
+            <text x="170" y="164" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Pride</text>
+            <line x1="152" y1="143" x2="128" y2="115" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
+            <circle cx="50" cy="160" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
+            <text x="50" y="164" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Camara-</text>
+            <text x="50" y="173" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">derie</text>
+            <line x1="68" y1="143" x2="92" y2="115" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
+            <circle cx="30" cy="70" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
+            <text x="30" y="74" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Fairness</text>
+            <line x1="51" y1="82" x2="85" y2="92" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="110" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#11131C">Employees' TRUST</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 2: Culture Audit -->
+      <div class="nb-card culture-check-card methodology-culture-card" style="padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+        <div style="display: flex; align-items: center; justify-content: center; min-height: 180px; background: linear-gradient(135deg, #f4f4f4, #ececec); border-radius: 12px; overflow: hidden;">
+          <img src="assets/culture audit.jpeg" alt="Culture Audit" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+        <div>
+          <h4 style="font-weight: 700; font-size: 17px; margin: 0 0 10px; letter-spacing: -0.01em;">Culture Audit (TM)</h4>
+          <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 18px; line-height: 1.6;">A submission that captures people practices to:</p>
+          <sc-for list="{{ cultureAuditTraits }}" as="item" hint-placeholder-count="6">
+            <p class="nb-list-item">{{ item }}</p>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         </div>
       </section>
       <section style="padding: 80px 24px;">
         <div style="max-width: 1000px; margin: 0 auto;">
           <div style="text-align: center; margin-bottom: 48px;">
-            <div style="margin-bottom: 14px;"><span class="nb-badge">Eligibility Criteria</span></div>
+            <div style="margin-bottom: 16px;"><span class="methodology-label" style="color: var(--color-accent);">Eligibility Criteria</span></div>
+            
             <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0;" class="heading-serif-mix">
-              Who can <span class="serif-part">apply.</span>
+              Who can apply
             </h2>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4px; background: var(--color-surface); border-radius: var(--radius-md); padding: 6px;">
@@ -489,329 +994,393 @@
   </sc-if>
   <!-- EVALUATION CRITERIA -->
   <sc-if value="{{ isCriteria }}" hint-placeholder-val="{{ false }}">
-    <main data-screen-label="Evaluation Criteria" style="max-width: 1000px; margin: 0 auto; padding: 80px 24px 100px; text-align: center;">
-      <div style="margin-bottom: 16px;"><span class="nb-badge">Evaluation Criteria</span></div>
-      <h1 style="font-size: 44px; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 14px; line-height: 1.1;" class="heading-serif-mix">
-        People. Planet. <span class="serif-part">Profit.</span>
-      </h1>
-      <p style="max-width: 52ch; color: var(--color-text-secondary); font-size: 17px; margin: 0 auto 40px; line-height: 1.65;">Submissions are scored across three pillars. Select a pillar to see what it measures.</p>
-      <div style="display: inline-flex; background: var(--color-surface); border-radius: 4px; padding: 4px; margin-bottom: 40px; gap: 4px;">
-        <sc-for list="{{ criteriaTabs }}" as="tab" hint-placeholder-count="3">
-          <button onClick="{{ tab.onClick }}" class="nb-criteria-tab" style="background: {{ tab.bg }}; color: {{ tab.color }};">
-            {{ tab.label }}
-          </button>
-        </sc-for>
-      </div>
-      <div style="display: grid; grid-template-columns: 240px 1fr; gap: 28px; align-items: start; text-align: left; margin-bottom: 24px;">
-        <div>
-          <div style="aspect-ratio: 1; overflow: hidden; border-radius: var(--radius-md); margin-bottom: 18px;">
-            <img src="{{ activePillar.image }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    <main data-screen-label="Evaluation Criteria">
+
+      <!-- Split: gray left + criteria right -->
+      <div class="criteria-layout">
+        <!-- Left: gray panel with red title -->
+        <div class="criteria-title-panel">
+          <h1 class="criteria-title">Evaluation<br>Criteria</h1>
+        </div>
+        <!-- Right: People / Planet / Profit -->
+        <div class="criteria-content">
+          <!-- People -->
+          <div class="criteria-group">
+            <h2>People</h2>
+            <div>Direct &amp; Indirect Job Creation<br>Investment in Human Capital<br>DEIB Policy Impact Metrics<br>GPTW Employee Experience and Culture Check**</div>
           </div>
-          <div style="font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: 52px; line-height: 1; color: var(--color-accent);">{{ activePillar.pct }}</div>
-          <div style="font-size: 12px; color: var(--color-text-muted); margin-top: 8px; letter-spacing: 0.05em; text-transform: uppercase;">of total evaluation weight</div>
-        </div>
-        <div style="display: grid; gap: 6px; background: var(--color-surface); border-radius: var(--radius-md); padding: 6px;">
-          <sc-for list="{{ activePillar.items }}" as="item" hint-placeholder-count="4">
-            <div class="nb-card" style="padding: 20px 24px; font-size: 15px; font-weight: 500; line-height: 1.5;">{{ item }}</div>
-          </sc-for>
+          <hr class="criteria-divider">
+          <!-- Planet -->
+          <div class="criteria-group">
+            <h2>Planet</h2>
+            <div>Corporate Social Responsibility Investment &amp; Impact Metrics<br>Environmental Investment</div>
+          </div>
+          <hr class="criteria-divider">
+          <!-- Profit -->
+          <div class="criteria-group">
+            <h2>Profit</h2>
+            <div>Financial Performance &amp; Economic Contribution through Taxes<br>Capital Investment &amp; Research and Development Footprint<br>Brand Equity<br>Infrastructure Development in the Country</div>
+          </div>
         </div>
       </div>
-      <p style="font-size: 12px; color: var(--color-text-muted); max-width: 80ch; margin-top: 32px; text-align: left; line-height: 1.7; padding: 16px; background: var(--color-surface); border-radius: var(--radius-sm); border-left: 3px solid var(--color-neutral-300);">{{ criteriaFootnote }}</p>
-    </main>
+      <!-- Footnote -->
+      <div style="width: 100%; padding: 32px 64px; background: var(--color-bg); box-sizing: border-box;">
+        <p style="font-size: 11px !important; color: var(--color-text-secondary); line-height: 1.6; margin: 0; font-style: italic; width: 100%; max-width: none;">
+          *Terms &amp; Conditions Apply.<br>
+          Participating organizations must score on a minimum of seven criteria, including the Great Place To Work Employee Experience and Culture Check. Organizations that submit seven items covering at least one criterion under each of the three P's—People, Planet, and Profit—will have an added advantage.
+        </p>
+      </div>
+
+        </main>
   </sc-if>
   <!-- RECOGNITION LIST -->
   <sc-if value="{{ isRecognition }}" hint-placeholder-val="{{ false }}">
-    <main data-screen-label="Recognition List" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px 100px; text-align: center;">
-      <div style="margin-bottom: 16px;"><span class="nb-badge">Recognition List</span></div>
-      <h1 style="font-size: 40px; font-weight: 700; letter-spacing: -0.025em; max-width: 22ch; margin: 0 auto 16px; line-height: 1.15;" class="heading-serif-mix">
-        The inaugural Nation Builders list publishes <span class="serif-part">February 2027.</span>
-      </h1>
-      <p style="max-width: 56ch; color: var(--color-text-secondary); font-size: 17px; margin: 0 auto 52px; line-height: 1.65;">Alongside Sri Lanka's Independence Day, we'll reveal the organizations recognized as this year's Nation Builders. Applications are open now — this is where they'll be celebrated.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 48px; text-align: left;">
-        <sc-for list="{{ recognitionPlaceholders }}" as="item" hint-placeholder-count="6">
-          <div class="nb-rec-card">
-            <div style="aspect-ratio: 1; background: repeating-linear-gradient(45deg, var(--color-neutral-200), var(--color-neutral-200) 8px, var(--color-neutral-300) 8px, var(--color-neutral-300) 16px); display: flex; align-items: center; justify-content: center;">
-              <span style="font-family: var(--font-heading); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-neutral-700); font-weight: 600;">Logo Slot</span>
-            </div>
-            <div style="padding: 18px 20px;">
-              <div style="font-family: var(--font-heading); font-weight: 700; font-size: 15px; margin-bottom: 4px; letter-spacing: -0.01em;">Organization Name</div>
-              <div style="font-size: 12px; color: var(--color-text-muted); letter-spacing: 0.03em;">Industry Placeholder</div>
-            </div>
+    <main data-screen-label="Nation Builders">
+      <div class="recognition-layout" style="max-width: 1280px; margin: 0 auto; padding: 80px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; min-height: 80vh;">
+
+        <img src="assets/Nation Builders.png" alt="Nation Builders — Powered by People"
+          style="display: block; width: min(100%, 520px); height: auto;">
+        <!-- Right: Year Accordion -->
+        <div style="padding-top: 16px;">
+          <!-- 2027 accordion -->
+          <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
+            <button onClick="{{ toggleYear2027 }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; background: var(--color-gray-2); border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 700; font-size: 22px; color: var(--color-brand-black);">
+              <span>2027</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ year2027Open ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;">
+                <path d="M4 7l6 6 6-6"/>
+              </svg>
+            </button>
+            <sc-if value="{{ year2027Open }}" hint-placeholder-val="{{ true }}">
+              <div style="padding: 8px 0;">
+                <sc-for list="{{ nbOrgs2027 }}" as="org" hint-placeholder-count="4">
+                  <div style="display: flex; align-items: center; gap: 16px; padding: 12px 24px; border-bottom: 1px solid var(--color-gray-2);">
+                    <div style="width: 52px; height: 52px; background: var(--color-accent); display: flex; align-items: center; justify-content: center; flex: none;">
+                      <span style="font-family: var(--font-heading); font-weight: 700; font-size: 11px; color: #fff; letter-spacing: 0.05em;">LOGO</span>
+                    </div>
+                    <span style="flex: 1; font-family: var(--font-heading); font-weight: 500; font-size: 16px; color: var(--color-brand-black);">{{ org.name }}</span>
+                    <button onClick="{{ org.openDetails }}" style="display: flex; align-items: center; gap: 6px; border: 1.5px solid var(--color-gray-9); background: none; border-radius: 20px; padding: 6px 14px; cursor: pointer; font-family: var(--font-heading); font-size: 11px; font-weight: 700; color: var(--color-brand-black); letter-spacing: 0.05em; white-space: nowrap;">
+                      CLICK HERE
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+                    </button>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
           </div>
-        </sc-for>
-      </div>
-      <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; text-align: left; border: 1px solid var(--color-neutral-200);">
-        <div>
-          <h3 style="margin: 0 0 6px; font-weight: 700; font-size: 18px; letter-spacing: -0.01em;">Want to see your organization here?</h3>
-          <p style="margin: 0; font-size: 14px; color: var(--color-text-secondary);">Registration closes 31 July 2026.</p>
+
+          <!-- 2028 accordion (collapsed) -->
+          <div style="border: 1px solid var(--color-gray-3);">
+            <button onClick="{{ toggleYear2028 }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; background: var(--color-gray-2); border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 700; font-size: 22px; color: var(--color-brand-black);">
+              <span>2028</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ year2028Open ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;">
+                <path d="M4 7l6 6 6-6"/>
+              </svg>
+            </button>
+            <sc-if value="{{ year2028Open }}" hint-placeholder-val="{{ false }}">
+              <div style="padding: 8px 0;">
+                <div style="padding: 24px; color: var(--color-text-muted); font-size: 14px; text-align: center;">The 2028 Nation Builders list will be published in February 2028.</div>
+              </div>
+            </sc-if>
+          </div>
         </div>
-        <button onClick="{{ goApply }}" class="btn-primary">
-          Apply Now →
-        </button>
+
       </div>
+    </main>
+  </sc-if>
+  <!-- ORGANIZATION DETAIL -->
+  <sc-if value="{{ isOrganization }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="Organization Details" style="max-width: 1100px; margin: 0 auto; padding: 72px 24px 100px;">
+      <div class="organization-detail-header" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 48px;">
+        <div>
+          <div class="nb-badge" style="margin-bottom: 14px;">Nation Builders 2027</div>
+          <h1 style="font-size: clamp(34px, 6vw, 58px); line-height: 1.05; margin: 0; color: var(--color-brand-black);">{{ selectedOrganization.name }}</h1>
+        </div>
+        <div style="width: 96px; height: 96px; background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center; flex: none; font-weight: 800; font-size: 13px; letter-spacing: 0.08em;">LOGO</div>
+      </div>
+      <div class="organization-detail-grid" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px;">
+        <section class="nb-card" style="padding: 32px;">
+          <h2 style="font-size: 24px; margin: 0 0 16px; color: var(--color-accent);">Company profile</h2>
+          <p style="font-size: 16px; line-height: 1.8; color: var(--color-text-secondary); margin: 0;">{{ selectedOrganization.description }}</p>
+        </section>
+        <section class="nb-card" style="padding: 32px;">
+          <h2 style="font-size: 24px; margin: 0 0 16px; color: var(--color-accent);">Recognition details</h2>
+          <p style="font-size: 15px; line-height: 1.7; color: var(--color-text-secondary); margin: 0 0 12px;"><strong>Industry:</strong> {{ selectedOrganization.industry }}</p>
+          <p style="font-size: 15px; line-height: 1.7; color: var(--color-text-secondary); margin: 0 0 12px;"><strong>Location:</strong> {{ selectedOrganization.location }}</p>
+          <p style="font-size: 15px; line-height: 1.7; color: var(--color-text-secondary); margin: 0;"><strong>Focus:</strong> {{ selectedOrganization.focus }}</p>
+        </section>
+      </div>
+      <section style="margin-top: 24px; background: var(--color-surface); padding: 32px; border-left: 4px solid var(--color-accent);">
+        <h2 style="font-size: 22px; margin: 0 0 10px; color: var(--color-brand-black);">Why this organization is recognized</h2>
+        <p style="font-size: 16px; line-height: 1.8; color: var(--color-text-secondary); margin: 0;">{{ selectedOrganization.impact }}</p>
+      </section>
     </main>
   </sc-if>
   <!-- INSIGHTS -->
   <sc-if value="{{ isInsights }}" hint-placeholder-val="{{ false }}">
-    <main data-screen-label="Insights" style="max-width: 1000px; margin: 0 auto; padding: 80px 24px 100px; text-align: center;">
-      <div style="margin-bottom: 16px;"><span class="nb-badge">Insights</span></div>
-      <h1 style="font-size: 44px; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 56px; line-height: 1.15;" class="heading-serif-mix">
-        What makes a <span class="serif-part">Nation Builder?</span>
-      </h1>
-      <div style="display: grid; gap: 16px; margin-bottom: 56px; text-align: left;">
-        <sc-for list="{{ pollQuestions }}" as="poll" hint-placeholder-count="3">
-          <div style="background: var(--color-surface); border-radius: var(--radius-md); padding: 32px; border: 1px solid var(--color-neutral-200);">
-            <h4 style="margin-bottom: 20px; max-width: 54ch; font-weight: 700; font-size: 16px; line-height: 1.5; letter-spacing: -0.01em;">{{ poll.question }}</h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
-              <sc-for list="{{ poll.options }}" as="opt" hint-placeholder-count="5">
-                <button onClick="{{ opt.onClick }}" style="text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; padding: 11px 18px; border: 1.5px solid {{ opt.bg === 'var(--color-bg)' ? 'var(--color-neutral-200)' : 'transparent' }}; border-radius: 4px; cursor: pointer; background: {{ opt.bg }}; color: {{ opt.color }}; transition: all 0.2s ease; font-family: var(--font-heading);">
-                  {{ opt.label }}
-                </button>
-              </sc-for>
+    <main class="insights-page" data-screen-label="Insights" style="max-width: 900px; margin: 0 auto; padding: 80px 24px 250px;">
+      <h1 style="font-family: var(--font-heading); font-size: 44px; font-weight: 800; color: var(--color-brand-black); margin: 0 0 48px; letter-spacing: -0.02em;">Insights</h1>
+
+      <!-- Study Reports accordion -->
+      <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
+        <button class="study-reports-toggle" onClick="{{ toggleStudyReports }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+          <span>Study Reports</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ studyReportsOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;">
+            <path d="M4 7l6 6 6-6"/>
+          </svg>
+        </button>
+        <sc-if value="{{ studyReportsOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 24px 28px 32px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+              <div style="background: #fff; border-radius: 8px; padding: 24px; border: 1px solid var(--color-gray-3);">
+                <div class="study-report-year" style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px;">2026</div>
+                <h4 class="study-report-title" style="font-size: 15px; font-weight: 700; margin: 0 0 8px; color: var(--color-brand-black);">Nation Builders Impact Report</h4>
+                <p class="study-report-description" style="font-size: 13px; color: var(--color-text-secondary); margin: 0 0 16px; line-height: 1.5;">An in-depth analysis of how Sri Lanka's top organizations are shaping the nation's future.</p>
+                <a href="#" style="font-size: 13px; font-weight: 600; color: var(--color-accent); text-decoration: none;">Download PDF →</a>
+              </div>
+              <div style="background: #fff; border-radius: 8px; padding: 24px; border: 1px solid var(--color-gray-3);">
+                <div class="study-report-year" style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px;">2026</div>
+                <h4 class="study-report-title" style="font-size: 15px; font-weight: 700; margin: 0 0 8px; color: var(--color-brand-black);">Workplace Culture in Sri Lanka</h4>
+                <p class="study-report-description" style="font-size: 13px; color: var(--color-text-secondary); margin: 0 0 16px; line-height: 1.5;">Research on employee experience trends driving national productivity and growth.</p>
+                <a href="#" style="font-size: 13px; font-weight: 600; color: var(--color-accent); text-decoration: none;">Download PDF →</a>
+              </div>
             </div>
           </div>
-        </sc-for>
+        </sc-if>
       </div>
-      <div style="aspect-ratio: 21/6; overflow: hidden; border-radius: var(--radius-lg); margin-bottom: 40px;">
-        <img src="assets/kids-gray.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;">
+      <!-- Press Releases accordion -->
+      <div style="border: 1px solid var(--color-gray-3);">
+        <button onClick="{{ togglePressReleases }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+          <span>Press Releases</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ pressReleasesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;">
+            <path d="M4 7l6 6 6-6"/>
+          </svg>
+        </button>
+        <sc-if value="{{ pressReleasesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 24px 28px 32px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #fff; border-radius: 8px; padding: 20px 24px; border: 1px solid var(--color-gray-3); display: flex; justify-content: space-between; align-items: center; gap: 24px;">
+                <div>
+                  <div class="press-release-date" style="font-size: 12px; color: var(--color-text-muted); margin-bottom: 4px;">19 August 2026</div>
+                  <div class="press-release-title" style="font-size: 15px; font-weight: 600; color: var(--color-brand-black);">Nation Builders: Powered by People — Inaugural Programme Launch</div>
+                </div>
+                <a href="#" style="font-size: 13px; font-weight: 600; color: var(--color-accent); text-decoration: none; white-space: nowrap;">Read More →</a>
+              </div>
+              <div style="background: #fff; border-radius: 8px; padding: 20px 24px; border: 1px solid var(--color-gray-3); display: flex; justify-content: space-between; align-items: center; gap: 24px;">
+                <div>
+                  <div class="press-release-date" style="font-size: 12px; color: var(--color-text-muted); margin-bottom: 4px;">1 August 2026</div>
+                  <div class="press-release-title" style="font-size: 15px; font-weight: 600; color: var(--color-brand-black);">Great Place To Work® Sri Lanka Announces New National Recognition Programme</div>
+                </div>
+                <a href="#" style="font-size: 13px; font-weight: 600; color: var(--color-accent); text-decoration: none; white-space: nowrap;">Read More →</a>
+              </div>
+            </div>
+          </div>
+        </sc-if>
       </div>
-      <!-- Why Participate — red section -->
-      <section style="background: var(--color-accent); border-radius: var(--radius-lg); padding: 60px 40px; margin-bottom: 40px; text-align: center;">
-        <div style="margin-bottom: 16px;"><span class="nb-badge-light" style="font-size: 10px;">Why Participate</span></div>
-        <h2 style="color: #fff; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; margin: 16px 0 8px; font-family: var(--font-heading); line-height: 1.2;">
-          What you gain as a
-        </h2>
-        <h2 style="font-family: var(--font-serif); font-style: italic; font-size: 36px; font-weight: 700; color: rgba(255,255,255,0.9); margin: 0 0 32px; line-height: 1.1;">
-          Nation Builder.
-        </h2>
-      </section>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; text-align: left;">
-        <div style="background: var(--color-surface); border-radius: var(--radius-md); padding: 32px; border: 1px solid var(--color-neutral-200);">
-          <h6 style="color: var(--color-accent); font-size: 11px; font-weight: 700; margin: 0 0 18px; letter-spacing: 0.12em; text-transform: uppercase;">Benefits to Awardees</h6>
-          <sc-for list="{{ benefitsAwardees }}" as="item" hint-placeholder-count="5">
-            <p class="nb-list-item">{{ item }}</p>
-          </sc-for>
-        </div>
-        <div style="background: var(--color-surface); border-radius: var(--radius-md); padding: 32px; border: 1px solid var(--color-neutral-200);">
-          <h6 style="color: var(--color-text-muted); font-size: 11px; font-weight: 700; margin: 0 0 18px; letter-spacing: 0.12em; text-transform: uppercase;">Expected Broader Impact</h6>
-          <sc-for list="{{ broaderImpact }}" as="item" hint-placeholder-count="7">
-            <p class="nb-list-item-muted">{{ item }}</p>
-          </sc-for>
-        </div>
-      </div>
+      
     </main>
   </sc-if>
   <!-- ABOUT -->
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-    <main data-screen-label="About Us" style="max-width: 1000px; margin: 0 auto; padding: 80px 24px 100px;">
-      <div style="text-align: center;">
-        <div style="margin-bottom: 16px;"><span class="nb-badge">About Us</span></div>
-        <h1 style="font-size: 44px; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 52px; line-height: 1.1;" class="heading-serif-mix">
-          Vision &amp; <span class="serif-part">Mission</span>
-        </h1>
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; align-items: stretch; margin-bottom: 80px;">
-        <div style="aspect-ratio: 4/5; overflow: hidden; border-radius: var(--radius-lg);">
-          <img src="assets/team-gray.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        </div>
-        <div style="display: grid; gap: 16px;">
-          <div class="nb-card" style="padding: 32px;">
-            <h3 style="margin-bottom: 12px; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; color: var(--color-accent);">Vision</h3>
-            <p style="font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">A Sri Lanka recognized as a thriving hub in South Asia, anchored by the strength and talent of its people.</p>
-          </div>
-          <div class="nb-card" style="padding: 32px;">
-            <h3 style="margin-bottom: 12px; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; color: var(--color-accent);">Mission</h3>
-            <p style="font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">To identify and celebrate organizations whose contributions uplift the nation, inspiring collective progress across Sri Lankan industry.</p>
-          </div>
-        </div>
-      </div>
-      <div style="text-align: center; margin-bottom: 40px;">
-        <div style="margin-bottom: 16px;"><span class="nb-badge">FAQ</span></div>
-        <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0;" class="heading-serif-mix">
-          Frequently asked <span class="serif-part">questions.</span>
-        </h2>
-      </div>
-      <div style="background: var(--color-surface); border-radius: var(--radius-md); padding: 6px; margin-bottom: 72px; border: 1px solid var(--color-neutral-200);">
-        <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="5">
-          <div class="nb-faq-item">
-            <button onClick="{{ item.onClick }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: none; border: none; text-align: left; cursor: pointer; padding: 22px 22px; font-family: var(--font-heading);">
-              <span style="font-weight: 700; font-size: 15px; letter-spacing: -0.01em;">{{ item.q }}</span>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="var(--color-accent)" stroke-width="2.2" style="flex: none; transform: {{ item.chevronTransform }}; transition: transform 0.2s ease;"><path d="M4 6l5 6 5-6"></path></svg>
-            </button>
-            <div style="display: {{ item.bodyDisplay }}; padding: 0 22px 22px;">
-              <p style="margin: 0; font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; max-width: 65ch;">{{ item.a }}</p>
+    <main class="about-page" data-screen-label="About Us" style="max-width: 900px; margin: 0 auto; padding: 80px 24px 100px;">
+      <h1 style="font-family: var(--font-heading); font-size: 44px; font-weight: 800; color: var(--color-brand-black); margin: 0 0 48px; letter-spacing: -0.02em;">About Us</h1>
+
+      <!-- Our Mission accordion -->
+      <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
+        <button onClick="{{ toggleAboutMission }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+          <span>Our Mission</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutMissionOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
+        </button>
+        <sc-if value="{{ aboutMissionOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 28px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+            <div class="about-mission-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+              <div style="background: #fff; border-radius: 8px; padding: 28px; border: 1px solid var(--color-gray-3);">
+                <h3 style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin: 0 0 10px;">Vision</h3>
+                <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">A Sri Lanka recognized as a thriving hub in South Asia, anchored by the strength and talent of its people.</p>
+              </div>
+              <div style="background: #fff; border-radius: 8px; padding: 28px; border: 1px solid var(--color-gray-3);">
+                <h3 style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin: 0 0 10px;">Mission</h3>
+                <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">To identify and celebrate organizations whose contributions uplift the nation, inspiring collective progress across Sri Lankan industry.</p>
+              </div>
             </div>
           </div>
-        </sc-for>
+        </sc-if>
+      </div>
+      <!-- Methodology accordion -->
+      <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
+        <button onClick="{{ toggleAboutMethodology }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+          <span>Methodology</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutMethodologyOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
+        </button>
+        <sc-if value="{{ aboutMethodologyOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 28px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+            <div class="about-methodology-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+              <sc-for list="{{ methodologyStages }}" as="stage" hint-placeholder-count="3">
+                <div style="background: #fff; border-radius: 8px; padding: 24px; border: 1px solid var(--color-gray-3);">
+                  <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid var(--color-accent);">STAGE {{ stage.n }}</div>
+                  <h4 class="about-methodology-card-title" style="font-size: 15px; font-weight: 700; margin: 10px 0 12px;">{{ stage.title }}</h4>
+                  <sc-for list="{{ stage.items }}" as="line" hint-placeholder-count="2">
+                    <p class="nb-list-item">{{ line }}</p>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          </sc-if>
+      </div>
+
+      <!-- FAQ accordion -->
+      <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
+        <button onClick="{{ toggleAboutFaq }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+          <span>FAQ</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutFaqOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
+        </button>
+        <sc-if value="{{ aboutFaqOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 8px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+            <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="5">
+              <div class="nb-faq-item" style="background: #fff; margin-bottom: 4px; border-radius: 4px;">
+                <button onClick="{{ item.onClick }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: none; border: none; text-align: left; cursor: pointer; padding: 20px 22px; font-family: var(--font-heading);">
+                  <span style="font-weight: 700; font-size: 14px;">{{ item.q }}</span>
+                  <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="var(--color-accent)" stroke-width="2.2" style="flex: none; transform: {{ item.chevronTransform }}; transition: transform 0.2s ease;"><path d="M4 6l5 6 5-6"></path></svg>
+                </button>
+                <div style="display: {{ item.bodyDisplay }}; padding: 0 22px 20px;">
+                  <p style="margin: 0; font-size: 13px; color: var(--color-text-secondary); line-height: 1.7;">{{ item.a }}</p>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+       <!-- Our Team accordion -->
+      <div style="border: 1px solid var(--color-gray-3);">
+        <button onClick="{{ toggleAboutTeam }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+          <span>Our Team</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutTeamOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
+        </button>
+        <sc-if value="{{ aboutTeamOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 28px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+            <p style="font-size: 14px; color: var(--color-text-secondary); margin: 0 0 20px; line-height: 1.6;">For our full team information, please visit the Great Place To Work® main website.</p>
+            <a href="https://greatplacetowork.lk/meet-our-team/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; font-size: 13px; color: var(--color-accent); text-decoration: none; border: 1.5px solid var(--color-accent); padding: 10px 20px;">Visit greatplacetowork.lk →</a>
+          </div>
+        </sc-if>
       </div>
       <!-- Contact cards -->
-      <h3 style="font-weight: 700; font-size: 18px; margin: 0 0 24px; letter-spacing: -0.01em;">Let's connect</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 40px;">
-        <div class="nb-contact-card">
-          <div class="nb-contact-icon" style="background: #e8f4fb;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b9fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      </main>
+  </sc-if>
+
+  <!-- CONTACT -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <main class="contact-page" data-screen-label="Contact Us" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 100px;">
+    <div class="contact-layout" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start;">
+      <div class="contact-intro">
+      <img
+  src="assets/Nation Builders.png"
+  alt="Nation Builders — Powered by People"
+  style="display: block; width: min(100%, 520px); height: auto;"
+>
+      <h1 style="font-family: var(--font-heading); font-size: 30px; font-weight: 800; line-height: 1.25; margin: 0 0 32px; letter-spacing: -0.01em;">
+          Start your <span style="color: var(--color-accent);">Nation Builders:<br>Powered By People</span> Journey Here
+        </h1>
+
+        <h3 style="font-family: var(--font-heading); font-size: 16px; font-weight: 700; margin: 0 0 16px; color: var(--color-brand-black);">Contact us for more information</h3>
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div class="contact-info-row" style="display: flex; align-items: center; gap: 14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-black)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.44 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 5.69 5.69l1.8-1.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 14.92z"></path></svg>
+            <span style="font-size: 14px; color: var(--color-text);">+94 114 545 594</span>
           </div>
-          <div>
-            <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 4px;">Website</div>
-            <div style="font-size: 14px; font-weight: 500; color: var(--color-text);">greatplacetowork.lk</div>
+          <div class="contact-info-row" style="display: flex; align-items: center; gap: 14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-black)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span style="font-size: 14px; color: var(--color-text);">lk_support@greatplacetowork.com</span>
           </div>
-        </div>
-        <div class="nb-contact-card">
-          <div class="nb-contact-icon" style="background: #f0e8f8;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9b5de5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          </div>
-          <div>
-            <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 4px;">Email</div>
-            <div style="font-size: 14px; font-weight: 500; color: var(--color-text);">lk_support@greatplacetowork.com</div>
-          </div>
-        </div>
-        <div class="nb-contact-card">
-          <div class="nb-contact-icon" style="background: #fce8e8;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e5534b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.44 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 5.69 5.69l1.8-1.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 14.92z"></path></svg>
-          </div>
-          <div>
-            <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 4px;">Phone</div>
-            <div style="font-size: 14px; font-weight: 500; color: var(--color-text);">011 4545 594</div>
+          <div class="contact-info-row" style="display: flex; align-items: flex-start; gap: 14px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand-black)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span style="font-size: 14px; color: var(--color-text); line-height: 1.5;">4th Floor, 79/1 5th Lane, Colombo 03</span>
           </div>
         </div>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center; background: var(--color-surface); border-radius: var(--radius-lg); padding: 40px; border: 1px solid var(--color-neutral-200);">
+
+      <div class="contact-form-panel" style="background: var(--color-gray-1); padding: 32px; border: 1px solid var(--color-gray-3);">
+        <sc-if value="{{ contactSubmitted }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align: center; padding: 32px 8px;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">✓</div>
+            <h2 style="font-size: 22px; margin: 0 0 10px; color: var(--color-brand-black);">Message ready to send.</h2>
+            <p style="font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); margin: 0 0 20px;">Your email app should open with the message addressed to our team.</p>
+            <button onClick="{{ resetContact }}" class="btn-outline">Send another message</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ contactFormVisible }}" hint-placeholder-val="{{ true }}">
+          <div style="margin-bottom: 24px;">
+            <div class="nb-badge" style="margin-bottom: 12px;">Get In Touch</div>
+            <h2 style="font-size: 26px; line-height: 1.2; margin: 0 0 8px; color: var(--color-brand-black);">Send us a message</h2>
+            <p style="font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); margin: 0;">Tell us how we can help with Nation Builders.</p>
+          </div>
+          <div class="contact-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+              <label for="contact-name" style="display: block; font-size: 11px; font-weight: 700; margin-bottom: 7px; color: var(--color-text-secondary);">Full name</label>
+              <input id="contact-name" class="nb-input" placeholder="Your full name" required value="{{ contactData.name }}" onChange="{{ updateContactName }}">
+            </div>
+            <div>
+              <label for="contact-designation" style="display: block; font-size: 11px; font-weight: 700; margin-bottom: 7px; color: var(--color-text-secondary);">Designation</label>
+              <input id="contact-designation" class="nb-input" placeholder="Your role" value="{{ contactData.designation }}" onChange="{{ updateContactDesignation }}">
+            </div>
+            <div>
+              <label for="contact-organization" style="display: block; font-size: 11px; font-weight: 700; margin-bottom: 7px; color: var(--color-text-secondary);">Organization</label>
+              <input id="contact-organization" class="nb-input" placeholder="Organization name" value="{{ contactData.organization }}" onChange="{{ updateContactOrganization }}">
+            </div>
+            <div>
+              <label for="contact-phone" style="display: block; font-size: 11px; font-weight: 700; margin-bottom: 7px; color: var(--color-text-secondary);">Phone number</label>
+              <input id="contact-phone" class="nb-input" type="tel" placeholder="+94 11 454 5594" value="{{ contactData.phone }}" onChange="{{ updateContactPhone }}">
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label for="contact-email" style="display: block; font-size: 11px; font-weight: 700; margin-bottom: 7px; color: var(--color-text-secondary);">Email address</label>
+              <input id="contact-email" class="nb-input" type="email" placeholder="you@organization.com" required value="{{ contactData.email }}" onChange="{{ updateContactEmail }}">
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label for="contact-source" style="display: block; font-size: 11px; font-weight: 700; margin-bottom: 7px; color: var(--color-text-secondary);">How did you hear about us?</label>
+              <select id="contact-source" class="nb-input" value="{{ contactData.source }}" onChange="{{ updateContactSource }}">
+                <option value="">Please select</option>
+                <option>Google</option>
+                <option>Social media</option>
+                <option>Referral</option>
+                <option>Great Place To Work website</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label for="contact-message" style="display: block; font-size: 11px; font-weight: 700; margin-bottom: 7px; color: var(--color-text-secondary);">Message</label>
+              <textarea id="contact-message" class="nb-input" placeholder="How can we help?" rows="5" required onChange="{{ updateContactMessage }}">{{ contactData.message }}</textarea>
+            </div>
+          </div>
+          <label style="display: flex; gap: 10px; align-items: flex-start; margin: 20px 0; font-size: 13px; line-height: 1.5; color: var(--color-text-secondary);">
+            <input type="checkbox" required onChange="{{ updateContactConsent }}" style="margin-top: 3px; accent-color: var(--color-accent); flex: none;">
+            I consent to receive Culture Insights and Updates from Great Place To Work® Sri Lanka.
+          </label>
+          <button onClick="{{ submitContact }}" class="btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+        </sc-if>
+      </div>
+      <!-- QR + URL -->
+      <div class="contact-qr" style="grid-column: 1 / -1; display: flex; gap: 40px; align-items: center; background: var(--color-gray-1); padding: 40px; border: 1px solid var(--color-gray-3);">
+        <div style="width: 110px; height: 110px; overflow: hidden; flex: none;">
+          <img src="assets/qr.jpg" alt="QR code" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
         <div>
-          <h3 style="margin-bottom: 10px; font-weight: 700; font-size: 16px; letter-spacing: -0.01em;">Scan to visit our website</h3>
+          <h3 style="font-weight: 700; font-size: 16px; margin: 0 0 8px; color: var(--color-brand-black);">Scan to visit our website</h3>
           <p style="font-size: 13px; margin: 0; color: var(--color-text-secondary); line-height: 1.6;">www.greatplacetowork.lk/nation-builders-powered-by-people/</p>
         </div>
-        <div style="width: 110px; height: 110px; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--color-bg); box-shadow: var(--shadow-card);">
-          <img src="assets/qr.jpg" alt="QR code to Nation Builders website" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        </div>
+        
       </div>
     </main>
   </sc-if>
-  <!-- APPLY -->
-  <sc-if value="{{ isApply }}" hint-placeholder-val="{{ false }}">
-    <main data-screen-label="Apply" style="background: var(--color-surface); min-height: 80vh;">
-      <!-- Left column text + right form layout -->
-      <div style="max-width: 1100px; margin: 0 auto; padding: 80px 24px 100px; display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: start;">
-        <!-- Left -->
-        <div>
-          
-          <h1 style="font-size: 48px; font-weight: 700; letter-spacing: -0.025em; margin: 16px 0 0; line-height: 1.1;" class="heading-serif-mix">
-            Begin your <span class="serif-part">journey.</span>
-          </h1>
-          
-        </div>
-        <!-- Right — Form card -->
-        <div style="background: var(--color-bg); border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow-card); border: 1px solid var(--color-neutral-200);">
-          <sc-if value="{{ formSubmitted }}" hint-placeholder-val="{{ false }}">
-            <div style="text-align: center; padding: 20px 0;">
-              <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--color-accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                <svg width="24" height="24" viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="2.4"><path d="M3 9.5l4 4 8-9"></path></svg>
-              </div>
-              <h2 style="margin-bottom: 12px; font-weight: 700; font-size: 22px; letter-spacing: -0.01em;">Application received.</h2>
-              <p style="font-size: 15px; color: var(--color-text-secondary); max-width: 40ch; margin: 0 auto 28px; line-height: 1.6;">Thank you — the Nation Builders team will follow up by email with next steps and access to the Culture Audit submission portal.</p>
-              <button onClick="{{ resetForm }}" class="btn-ghost">Start another application</button>
-            </div>
-          </sc-if>
-          <sc-if value="{{ formNotSubmitted }}" hint-placeholder-val="{{ true }}">
-            <div>
-              <!-- Header row: title + step counter -->
-              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
-                <div>
-                  <h2 style="font-size: 18px; font-weight: 700; margin: 0; letter-spacing: -0.01em;">Submit your application</h2>
-                  <div style="display: flex; justify-content: center; gap: 12px; width: 100%; max-width: 420px; margin-top: 12px;">
-                    <sc-for list="{{ formSteps }}" as="s" hint-placeholder-count="3">
-                      <button onClick="{{ s.onClick }}" style="flex: 1; min-width: 110px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--color-divider); background: {{ s.bg }}; color: {{ s.color }}; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">
-                        {{ s.label }}
-                      </button>
-                    </sc-for>
-                  </div>
-                </div>
-                <span style="font-size: 13px; color: var(--color-text-muted); font-weight: 500; white-space: nowrap;">{{ stepCounterLabel }}</span>
-              </div>
-              <!-- Progress bar -->
-              <div class="nb-progress-bar">
-                <div class="nb-progress-fill" style="width: {{ isStep0 ? '33%' : isStep1 ? '66%' : '100%' }};"></div>
-              </div>
-              <!-- Step 0 — Org details -->
-              <sc-if value="{{ isStep0 }}" hint-placeholder-val="{{ true }}">
-                <div style="display: grid; gap: 18px;">
-                  <div>
-                    <label style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 7px; color: var(--color-text-secondary);">Organisation Name <span style="color: var(--color-accent);">★</span></label>
-                    <input class="nb-input" placeholder="Legal name of your organisation" value="{{ formData.org }}" onChange="{{ updateOrg }}">
-                  </div>
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-                    <div>
-                      <label style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 7px; color: var(--color-text-secondary);">Industry</label>
-                      <input class="nb-input" placeholder="e.g. Finance" value="{{ formData.industry }}" onChange="{{ updateIndustry }}">
-                    </div>
-                    <div>
-                      <label style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 7px; color: var(--color-text-secondary);">Employees</label>
-                      <input class="nb-input" placeholder="e.g. 250" value="{{ formData.employees }}" onChange="{{ updateEmployees }}">
-                    </div>
-                  </div>
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-                    <div>
-                      <label style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 7px; color: var(--color-text-secondary);">Contact Person</label>
-                      <input class="nb-input" placeholder="Full name" value="{{ formData.contact }}" onChange="{{ updateContact }}">
-                    </div>
-                    <div>
-                      <label style="display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 7px; color: var(--color-text-secondary);">Email</label>
-                      <input class="nb-input" placeholder="work@company.lk" value="{{ formData.email }}" onChange="{{ updateEmail }}">
-                    </div>
-                  </div>
-                  <div style="display: flex; justify-content: flex-end; margin-top: 4px;">
-                    <button onClick="{{ nextStep }}" class="btn-primary">Continue →</button>
-                  </div>
-                </div>
-              </sc-if>
-              <!-- Step 1 — Eligibility -->
-              <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ false }}">
-                <div>
-                  <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 20px; line-height: 1.6;">Confirm your organization meets the eligibility criteria before proceeding.</p>
-                  <div style="display: grid; gap: 4px; background: var(--color-surface); border-radius: var(--radius-md); padding: 6px; margin-bottom: 24px;">
-                    <sc-for list="{{ eligibilityChecks }}" as="chk" hint-placeholder-count="4">
-                      <label style="display: flex; gap: 14px; align-items: flex-start; padding: 16px 16px; background: var(--color-bg); border-radius: 7px; cursor: pointer; transition: background 0.15s;">
-                        <input type="checkbox" checked="{{ chk.checked }}" onChange="{{ chk.onChange }}" style="margin-top: 2px; accent-color: var(--color-accent); width: 16px; height: 16px; flex: none;">
-                        <span style="font-size: 14px; line-height: 1.5;">{{ chk.label }}</span>
-                      </label>
-                    </sc-for>
-                  </div>
-                  <div style="display: flex; justify-content: space-between;">
-                    <button onClick="{{ prevStep }}" class="btn-ghost">← Back</button>
-                    <button onClick="{{ nextStep }}" class="btn-primary">Continue →</button>
-                  </div>
-                </div>
-              </sc-if>
-              <!-- Step 2 — Review -->
-              <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
-                <div>
-                  <h4 style="margin-bottom: 16px; font-weight: 700; font-size: 15px; letter-spacing: -0.01em;">Review your application</h4>
-                  <div style="background: var(--color-surface); border-radius: var(--radius-md); padding: 22px; margin-bottom: 24px; display: grid; gap: 10px; font-size: 14px; border: 1px solid var(--color-neutral-200);">
-                    <div style="display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-text-muted); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">Organization</span><span style="font-weight: 600;">{{ formData.orgDisplay }}</span></div>
-                    <div style="display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-text-muted); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">Industry</span><span>{{ formData.industryDisplay }}</span></div>
-                    <div style="display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-text-muted); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">Employees</span><span>{{ formData.employeesDisplay }}</span></div>
-                    <div style="display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-text-muted); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">Contact</span><span>{{ formData.contactDisplay }}</span></div>
-                    <div style="display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--color-divider);"><span style="color: var(--color-text-muted); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">Email</span><span>{{ formData.emailDisplay }}</span></div>
-                    <div style="display: flex; justify-content: space-between;"><span style="color: var(--color-text-muted); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;">Eligibility</span><span style="color: var(--color-accent); font-weight: 600;">{{ eligibilitySummary }}</span></div>
-                  </div>
-                  <div style="display: flex; justify-content: space-between;">
-                    <button onClick="{{ prevStep }}" class="btn-ghost">← Back</button>
-                    <button onClick="{{ submitForm }}" class="btn-primary">Submit Application →</button>
-                  </div>
-                </div>
-              </sc-if>
-            </div>
-          </sc-if>
-        </div>
-      </div>
-    </main>
-  </sc-if>
+  
   <!-- FOOTER -->
-  <footer style="border-top: 1px solid var(--color-divider); background: var(--color-bg);">
-    <div style="max-width: 1280px; margin: 0 auto; padding: 28px 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-      <div style="font-family: var(--font-heading); font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary);">Nation Builders — Powered by People</div>
-      <div style="font-size: 12px; color: var(--color-text-muted);">©Great Place To Work® Institute, Inc. All Rights Reserved.</div>
+  <footer style="background: var(--color-footer); color: #fff;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 32px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div>
+        <div style="font-family: var(--font-heading); font-weight: 700; font-size: 14px; color: #fff; margin-bottom: 4px;">Nation Builders — Powered by People</div>
+        <div style="font-size: 12px; color: var(--color-gray-5);">Great Place To Work® Sri Lanka</div>
+      </div>
+      <div style="font-size: 12px; color: var(--color-gray-6);">©Great Place To Work® Institute, Inc. All Rights Reserved.</div>
     </div>
-    <div style="height: 3px; background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-700) 100%);"></div>
+    
   </footer>
 </div>
 </x-dc>
@@ -823,7 +1392,8 @@
 const SUBMISSION_ENDPOINT = '';
 class Component extends DCLogic {
   state = {
-    page: 'home',
+    page: typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('company') ? 'organization' : 'home',
+    selectedOrganizationKey: typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('company') : null,
     theme: 'light',
     mobileMenuOpen: false,
     viewportWidth: typeof window !== 'undefined' ? window.innerWidth : 1280,
@@ -832,8 +1402,18 @@ class Component extends DCLogic {
     polls: {},
     formStep: 0,
     formSubmitted: false,
+    contactSubmitted: false,
+    contactData: { name: '', designation: '', organization: '', phone: '', email: '', source: '', message: '', consent: false },
     formData: { org: '', industry: '', employees: '', contact: '', email: '',
-      eligLegal: false, eligSurvey: false, eligAudit: false, eligAudited: false }
+      eligLegal: false, eligSurvey: false, eligAudit: false, eligAudited: false },
+    year2027Open: true,
+    year2028Open: false,
+    studyReportsOpen: false,
+    pressReleasesOpen: false,
+    aboutMissionOpen: false,
+    aboutMethodologyOpen: false,
+    aboutFaqOpen: false,
+    aboutTeamOpen: false
   };
   componentDidMount() {
     this._onResize = () => this.setState({ viewportWidth: window.innerWidth });
@@ -844,14 +1424,16 @@ class Component extends DCLogic {
   }
   setPage(p) { this.setState({ page: p, mobileMenuOpen: false }); if (typeof window !== 'undefined') window.scrollTo(0, 0); }
   renderVals() {
-    const { page, theme, mobileMenuOpen, viewportWidth, criteriaTab, openFaq, polls, formStep, formSubmitted, formData } = this.state;
+    const { page, theme, mobileMenuOpen, viewportWidth, criteriaTab, openFaq, polls, formStep, formSubmitted, formData, contactSubmitted, contactData, selectedOrganizationKey,
+      year2027Open, year2028Open, studyReportsOpen, pressReleasesOpen,
+      aboutMissionOpen, aboutMethodologyOpen, aboutFaqOpen, aboutTeamOpen } = this.state;
     const isMobile = viewportWidth < 880;
     const accent = 'var(--color-accent)';
     const accentText = 'var(--color-accent)';
     const text = 'var(--color-text)';
     const navDefs = [
       ['home', 'Home'], ['methodology', 'Methodology'], ['criteria', 'Evaluation Criteria'],
-      ['recognition', 'Recognition List'], ['insights', 'Insights'], ['about', 'About Us']
+      ['recognition', 'Nation Builders'], ['insights', 'Insights'], ['about', 'About Us'], ['contact', 'Contact Us']
     ];
     const navItems = navDefs.map(([key, label]) => ({
       label, color: page === key ? accentText : text,
@@ -867,10 +1449,10 @@ class Component extends DCLogic {
     ];
     const purposeHighlights = purposeSrc.map((text, i) => ({ n: String(i + 1).padStart(2, '0'), text }));
     const timelineSteps = [
-      { n: '01', label: 'Register', detail: 'by 31 July 2026' },
-      { n: '02', label: 'Submit Assessment', detail: 'before 30 September 2026' },
-      { n: '03', label: 'Audited Accounts', detail: 'October 2026' },
-      { n: '04', label: 'Publication', detail: 'February 2027' }
+      { n: '01', label: 'Register by\n31st August 2026', detail: '' },
+      { n: '02', label: 'Submit Assessment\nbefore 30th November 2026', detail: '' },
+      { n: '03', label: 'Submit Audited\nAccounts by December 2026', detail: '' },
+      { n: '04', label: 'Publication in\nFebruary 2027', detail: '' }
     ];
     const methodologyStages = [
       { n: '01', title: 'Register & Submit', items: [
@@ -915,6 +1497,17 @@ class Component extends DCLogic {
     const activePillar = criteriaDataSrc[criteriaTab];
     const criteriaFootnote = "*Terms & Conditions apply. Participating organizations must score on a minimum of seven criteria, including the Great Place To Work Employee Experience and Culture Check. Organizations that submit seven items covering at least one criterion under each of the three P's — People, Planet, and Profit — will have an added advantage.";
     const recognitionPlaceholders = Array.from({ length: 6 }, (_, i) => ({ id: i }));
+    const nbOrgs2027 = [
+      { key: 'organization-01', name: 'Organization 01', industry: 'Financial Services', location: 'Colombo, Sri Lanka', focus: 'Inclusive growth', description: 'Organization 01 is recognized for building capability, creating opportunity, and contributing to a stronger Sri Lankan economy.', impact: 'Its work connects business performance with meaningful progress for employees, customers, and communities.' },
+      { key: 'organization-02', name: 'Organization 02', industry: 'Manufacturing', location: 'Western Province, Sri Lanka', focus: 'Human capital', description: 'Organization 02 is recognized for investing in people, developing skills, and creating pathways for long-term employment.', impact: 'Its people-first approach demonstrates how responsible organizations can strengthen communities while growing sustainably.' },
+      { key: 'organization-03', name: 'Organization 03', industry: 'Technology', location: 'Colombo, Sri Lanka', focus: 'Innovation and opportunity', description: 'Organization 03 is recognized for using innovation to create new opportunities and improve the way people work and live.', impact: 'Its contribution shows how technology and responsible leadership can help shape Sri Lanka’s future.' },
+      { key: 'organization-04', name: 'Organization 04', industry: 'Infrastructure', location: 'Sri Lanka', focus: 'National development', description: 'Organization 04 is recognized for delivering work that supports national development and creates lasting value for communities.', impact: 'Its long-term contribution reflects the shared responsibility of organizations that help build a stronger nation.' }
+    ].map(org => ({ ...org, openDetails: () => {
+      const detailUrl = new URL(window.location.href);
+      detailUrl.search = '?company=' + encodeURIComponent(org.key);
+      window.open(detailUrl.toString(), '_blank');
+    } }));
+    const selectedOrganization = nbOrgs2027.find(org => org.key === selectedOrganizationKey) || nbOrgs2027[0];
     const pollSrc = [
       { key: 'q1', question: 'What element do you think is most important to be a nation builder?',
         options: ['Job creation', 'Developing human capital', 'Financial performance', 'Environmental stewardship', 'Infrastructure & innovation', 'Community development', 'Other'] },
@@ -977,8 +1570,12 @@ class Component extends DCLogic {
       toggleTheme: () => this.setState({ theme: theme === 'light' ? 'dark' : 'light' }),
       themeToggleLabel: theme === 'light' ? 'Dark' : 'Light',
       isHome: page === 'home', isMethodology: page === 'methodology', isCriteria: page === 'criteria',
-      isRecognition: page === 'recognition', isInsights: page === 'insights', isAbout: page === 'about', isApply: page === 'apply',
-      goHome: () => this.setPage('home'), goMethodology: () => this.setPage('methodology'), goApply: () => this.setPage('apply'),
+      isRecognition: page === 'recognition', isOrganization: page === 'organization', isInsights: page === 'insights', isAbout: page === 'about',
+      isApply: page === 'apply', isContact: page === 'contact',
+      contactSubmitted,
+      contactFormVisible: !contactSubmitted,
+      contactData,
+      goHome: () => this.setPage('home'), goGreatPlaceToWork: () => { window.location.href = 'https://greatplacetowork.lk/'; }, goMethodology: () => this.setPage('methodology'), goCriteria: () => this.setPage('criteria'), goApply: () => this.setPage('apply'), goContact: () => this.setPage('contact'),
       desktopNavDisplay: isMobile ? 'none' : 'flex', mobileNavDisplay: isMobile ? 'flex' : 'none',
       mobileMenuDisplay: (isMobile && mobileMenuOpen) ? 'flex' : 'none',
       toggleMobileMenu: () => this.setState({ mobileMenuOpen: !mobileMenuOpen }),
@@ -993,6 +1590,19 @@ class Component extends DCLogic {
       recognitionPlaceholders,
       pollQuestions, benefitsAwardees, broaderImpact,
       faqItems,
+      nbOrgs2027,
+      selectedOrganization,
+      year2027Open, year2028Open,
+      toggleYear2027: () => this.setState({ year2027Open: !year2027Open }),
+      toggleYear2028: () => this.setState({ year2028Open: !year2028Open }),
+      studyReportsOpen, pressReleasesOpen,
+      toggleStudyReports: () => this.setState({ studyReportsOpen: !studyReportsOpen }),
+      togglePressReleases: () => this.setState({ pressReleasesOpen: !pressReleasesOpen }),
+      aboutMissionOpen, aboutMethodologyOpen, aboutFaqOpen, aboutTeamOpen,
+      toggleAboutMission: () => this.setState({ aboutMissionOpen: !aboutMissionOpen }),
+      toggleAboutMethodology: () => this.setState({ aboutMethodologyOpen: !aboutMethodologyOpen }),
+      toggleAboutFaq: () => this.setState({ aboutFaqOpen: !aboutFaqOpen }),
+      toggleAboutTeam: () => this.setState({ aboutTeamOpen: !aboutTeamOpen }),
       formSteps, isStep0: formStep === 0, isStep1: formStep === 1, isStep2: formStep === 2,
       nextStep: () => this.setState({ formStep: Math.min(2, formStep + 1) }),
       prevStep: () => this.setState({ formStep: Math.max(0, formStep - 1) }),
@@ -1004,6 +1614,34 @@ class Component extends DCLogic {
       updateEmployees: e => this.setState({ formData: { ...formData, employees: e.target.value } }),
       updateContact: e => this.setState({ formData: { ...formData, contact: e.target.value } }),
       updateEmail: e => this.setState({ formData: { ...formData, email: e.target.value } }),
+      updateContactName: e => this.setState({ contactData: { ...contactData, name: e.target.value } }),
+      updateContactDesignation: e => this.setState({ contactData: { ...contactData, designation: e.target.value } }),
+      updateContactOrganization: e => this.setState({ contactData: { ...contactData, organization: e.target.value } }),
+      updateContactPhone: e => this.setState({ contactData: { ...contactData, phone: e.target.value } }),
+      updateContactEmail: e => this.setState({ contactData: { ...contactData, email: e.target.value } }),
+      updateContactSource: e => this.setState({ contactData: { ...contactData, source: e.target.value } }),
+      updateContactMessage: e => this.setState({ contactData: { ...contactData, message: e.target.value } }),
+      updateContactConsent: e => this.setState({ contactData: { ...contactData, consent: e.target.checked } }),
+      submitContact: () => {
+        if (!contactData.name.trim() || !contactData.email.trim() || !contactData.message.trim() || !contactData.consent) {
+          window.alert('Please complete your name, email address, message, and consent before sending.');
+          return;
+        }
+        const subject = encodeURIComponent('Nation Builders contact enquiry from ' + (contactData.name || 'Website visitor'));
+        const body = encodeURIComponent(
+          'Full name: ' + contactData.name + '\n' +
+          'Designation: ' + contactData.designation + '\n' +
+          'Organization: ' + contactData.organization + '\n' +
+          'Phone: ' + contactData.phone + '\n' +
+          'Email: ' + contactData.email + '\n' +
+          'How they heard about us: ' + contactData.source + '\n\n' +
+          'Message:\n' + contactData.message + '\n\n' +
+          'Consent to receive updates: ' + (contactData.consent ? 'Yes' : 'No')
+        );
+        window.open('mailto:lk_support@greatplacetowork.com?subject=' + subject + '&body=' + body);
+        this.setState({ contactSubmitted: true });
+      },
+      resetContact: () => this.setState({ contactSubmitted: false, contactData: { name: '', designation: '', organization: '', phone: '', email: '', source: '', message: '', consent: false } }),
       eligibilityChecks,
       eligibilitySummary: eligibilityCount + ' of 4 confirmed',
       formSubmitted, formNotSubmitted: !formSubmitted,
