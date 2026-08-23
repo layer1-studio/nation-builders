@@ -19,7 +19,8 @@
 <x-dc>
 <helmet>
   <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/gilroy');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap');
     :root {
       /* Brand Primary */
       --color-brand-red: #FF1628;
@@ -54,9 +55,9 @@
       --color-neutral-300: #C4CCCC;
       --color-neutral-400: #A6AEB2;
       --color-neutral-700: #444C54;
-      --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-heading: 'Gilroy', 'Century Gothic', 'Noto Sans';
+      --font-body: 'Gilroy', 'Century Gothic', 'Noto Sans';
+      --font-serif: 'Gilroy', 'Century Gothic', 'Noto Sans';
       --radius-lg: 12px;
       --radius-md: 8px;
       --radius-sm: 4px;
@@ -64,25 +65,10 @@
      --shadow-card: 0 2px 12px rgba(17,19,28,0.07), 0 1px 3px rgba(17,19,28,0.05);
       --shadow-card-hover: 0 8px 32px rgba(17,19,28,0.12), 0 2px 8px rgba(17,19,28,0.08);
     }
-    [data-theme="dark"] {
-      --color-bg: #11131C;
-      --color-surface: #22262D;
-      --color-surface-2: #32383F;
-      --color-text: #F5F8F6;
-      --color-brand-black: #F5F8F6;
-      --color-text-secondary: #A6AEB2;
-      --color-text-muted: #69737A;
-      --color-divider: rgba(245,248,246,0.10);
-      --color-neutral-200: #32383F;
-      --color-neutral-300: #444C54;
-      --color-neutral-400: #555E66;
-      --color-neutral-700: #C4CCCC;
-      --color-footer: #11131C;
-      --shadow-card: 0 2px 12px rgba(0,0,0,0.4);
-    }
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; -webkit-font-smoothing: antialiased; font-family: var(--font-body); font-size: 18px; }
-    main p, main li { font-size: 18px !important; }
+    html, body, x-dc { margin: 0; padding: 0; }
+    body { -webkit-font-smoothing: antialiased; font-family: var(--font-body); font-size: 18px; background: var(--color-bg); }
+    main p, main li { font-size: 18px !important; font-weight: 600 !important; }
     main button, main input { font-size: 16px !important; }
     .nb-nav-link { font-size: 18px !important; font-weight: 700 !important; }
     ::selection { background: rgba(255,22,40,0.18); }
@@ -204,6 +190,17 @@
       padding-left: 16px; border-left: 2.5px solid var(--color-neutral-400);
       color: var(--color-text-secondary);
     }
+    .nb-bullet-list {
+      margin: 0 0 18px;
+      padding-left: 20px;
+      color: var(--color-text);
+    }
+    .nb-bullet-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
     /* FAQ item */
     .nb-faq-item { border-bottom: 1px solid var(--color-divider); }
     .nb-faq-item:last-child { border-bottom: none; }
@@ -289,13 +286,14 @@
     .purpose-cell:nth-child(3n) { border-right: none; }
     .purpose-cell:nth-child(n+4) { border-bottom: none; }
     .purpose-icon {
-      width: 72px; height: 72px;
-      margin: 0 auto 20px;
+      width: 120px; height: 120px;
+      margin: 0 auto 24px;
       display: flex; align-items: center; justify-content: center;
     }
     @media (max-width: 768px) {
       .purpose-grid { grid-template-columns: 1fr; }
       .purpose-cell { border-right: none; }
+      .purpose-icon { width: 200px; height: 200px; }
     }
 
     /* ── BENEFITS DARK SECTION ── */
@@ -354,37 +352,6 @@
         .methodology-culture-heading { font-size: 30px !important; }
       .culture-check-card { grid-template-columns: 1fr !important; padding: 28px 24px !important; gap: 24px !important; }
     }
-
-    [data-theme="dark"] main [style*="background: #fff"] { background: var(--color-surface) !important; }
-    [data-theme="dark"] main [style*="background: #fff"] { color: var(--color-brand-black) !important; }
-    [data-theme="dark"] main [style*="background: #fff"] h3,
-    [data-theme="dark"] main [style*="background: #fff"] h4,
-    [data-theme="dark"] main [style*="background: #fff"] p,
-    [data-theme="dark"] main [style*="background: #fff"] li,
-    [data-theme="dark"] main [style*="background: #fff"] button,
-    [data-theme="dark"] main [style*="background: #fff"] strong { color: var(--color-brand-black) !important; }
-    [data-theme="dark"] main svg[style*="stroke:var(--color-brand-black)"] { stroke: var(--color-text) !important; }
-    [data-theme="dark"] main text[fill="#11131C"] { fill: var(--color-text) !important; }
-    [data-theme="dark"] .journey-step-box,
-    [data-theme="dark"] .journey-arrow-track { color: #11131C !important; }
-    [data-theme="dark"] .insights-page > div > button,
-    [data-theme="dark"] .about-page > div > button { color: #11131C !important; }
-    [data-theme="dark"] .insights-page > div > button span,
-    [data-theme="dark"] .about-page > div > button span { color: #11131C !important; }
-    [data-theme="dark"] .insights-page > div > button svg,
-    [data-theme="dark"] .about-page > div > button svg { stroke: #11131C !important; }
-    [data-theme="dark"] .insights-page [style*="background: #fff"] h4,
-    [data-theme="dark"] .insights-page [style*="background: #fff"] p,
-    [data-theme="dark"] .about-page [style*="background: #fff"] h3,
-    [data-theme="dark"] .about-page [style*="background: #fff"] h4,
-    [data-theme="dark"] .about-page [style*="background: #fff"] p { color: #11131C !important; }
-    [data-theme="dark"] .about-methodology-card-title,
-    [data-theme="dark"] .about-methodology-grid .nb-list-item,
-    [data-theme="dark"] .study-reports-toggle,
-    [data-theme="dark"] .study-report-title,
-    [data-theme="dark"] .study-report-description,
-    [data-theme="dark"] .press-release-date,
-    [data-theme="dark"] .press-release-title { color: #11131C !important; }
 
     /* ── ELIGIBILITY SPLIT ── */
     .eligibility-split {
@@ -555,7 +522,7 @@
     }
   </style>
 </helmet>
-<div data-theme="{{ theme }}" style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); min-height: 100vh; letter-spacing: -0.01em; transition: background 0.3s, color 0.3s;">
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); letter-spacing: -0.01em;">
   <!-- HEADER -->
  <header style="position: sticky; top: 0; z-index: 40; background: var(--color-bg); border-bottom: 1px solid var(--color-gray-3);">
     <div class="header-inner" style="max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; gap: 16px; height: 64px;">
@@ -564,17 +531,25 @@
         <img src="assets/GPTW_box_logo_RED.png" alt="Nation Builders — Powered by People" style="height: 65px; width: auto; display: block;">
       </button>
       <!-- Desktop Nav -->
-      <nav class="header-primary-nav" aria-label="Primary" style="display: {{ desktopNavDisplay }}; align-items: center; gap: 32px; flex: 1; justify-content: center;">
+      <nav class="header-primary-nav" aria-label="Primary" style="display: {{ desktopNavDisplay }}; align-items: center; gap: 42px; flex: 1; justify-content: center;">
         <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="7">
-          <button onClick="{{ item.onClick }}" class="nb-nav-link" style="color: {{ item.color }}; font-weight: 500; font-size: 14px; letter-spacing: 0;">
-            {{ item.label }}
-          </button>
+          <div style="position: relative; display: inline-flex; align-items: center; margin-right: 12px;">
+            <button onClick="{{ item.onClick }}" class="nb-nav-link" style="color: {{ item.color }}; font-weight: 500; font-size: 14px; letter-spacing: 0.02em; padding: 0 4px;">
+              {{ item.label }}
+            </button>
+            <sc-if value="{{ item.dropdownOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="position: absolute; top: calc(100% + 10px); left: 0; min-width: 220px; padding: 8px 0; background: #fff; border: 1px solid var(--color-gray-3); box-shadow: 0 10px 24px rgba(17,19,28,0.08); border-radius: 8px; z-index: 10;">
+                <sc-for list="{{ item.dropdown }}" as="subItem" hint-placeholder-count="3">
+                  <button onClick="{{ subItem.onClick }}" style="display: block; width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 12px 16px; font-family: var(--font-heading); font-size: 14px; font-weight: 500; color: var(--color-brand-black);">
+                    {{ subItem.label }}
+                  </button>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
         </sc-for>
       </nav>
       <div class="header-actions" style="display: {{ desktopNavDisplay }}; align-items: center; gap: 10px;">
-        <button onClick="{{ toggleTheme }}" class="btn-ghost" style="font-size: 16px; padding: 12px 22px;">
-          {{ themeToggleLabel }}
-        </button>
         <button onClick="{{ goContact }}" class="btn-primary" style="font-size: 16px; padding: 12px 28px;">
           Register Now
         </button>
@@ -590,14 +565,22 @@
     <!-- Mobile Menu -->
     <div style="display: {{ mobileMenuDisplay }}; flex-direction: column; border-top: 1px solid var(--color-gray-3); padding: 8px 32px 24px; background: var(--color-bg);">
       <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="7">
-         <button onClick="{{ item.onClick }}" style="background: none; border: none; text-align: left; cursor: pointer; padding: 14px 0; font-size: 15px; font-weight: 500; color: {{ item.color }}; font-family: var(--font-heading); border-bottom: 1px solid var(--color-gray-3);">
-          {{ item.label }}
-        </button>
+        <div style="border-bottom: 1px solid var(--color-gray-3);">
+          <button onClick="{{ item.onClick }}" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer; padding: 14px 0; font-size: 15px; font-weight: 500; color: {{ item.color }}; font-family: var(--font-heading);">
+            {{ item.label }}
+          </button>
+          <sc-if value="{{ item.dropdownOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; padding: 0 0 12px; gap: 6px;">
+              <sc-for list="{{ item.dropdown }}" as="subItem" hint-placeholder-count="3">
+                <button onClick="{{ subItem.onClick }}" style="background: none; border: none; text-align: left; cursor: pointer; padding: 8px 12px; font-size: 14px; color: var(--color-brand-black); font-family: var(--font-heading);">
+                  {{ subItem.label }}
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
       </sc-for>
       <div style="display: flex; gap: 10px; margin-top: 20px;">
-        <button onClick="{{ toggleTheme }}" class="btn-ghost" style="flex: 1; justify-content: center;">
-           {{ themeToggleLabel }} mode
-        </button>
         <button onClick="{{ goApply }}" class="btn-primary" style="flex: 1; justify-content: center;">
           Register Now
         </button>
@@ -628,7 +611,7 @@
               It is a movement to recognize bold leadership, commitment to community development, and their ability to fuel change that extends far beyond the workplace.
             </p>
             <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-              <button onClick="{{ goApply }}" class="btn-outline" style="font-weight: 700; font-size: 14px; border-color: var(--color-gray-9); color: var(--color-brand-black);">
+              <button onClick="{{ goContact }}" class="btn-outline" style="font-weight: 700; font-size: 14px; border-color: var(--color-gray-9); color: var(--color-brand-black);">
                 Register Now
               </button>
               <button onClick="{{ goCriteria }}" class="btn-outline" style="font-weight: 700; font-size: 14px; border-color: var(--color-gray-9); color: var(--color-brand-black);">
@@ -664,79 +647,38 @@
             <!-- Row 1 -->
             <div class="purpose-cell">
               <div class="purpose-icon">
-                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
-                  <circle cx="36" cy="36" r="34" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M22 30 Q28 16 36 20 Q44 16 50 30 L50 44 Q44 52 36 52 Q28 52 22 44 Z" stroke="#FF1628" stroke-width="2" fill="none"/>
-                  <path d="M28 36 L36 20 L44 36" stroke="#FF1628" stroke-width="2" fill="none"/>
-                  <line x1="20" y1="52" x2="52" y2="52" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M30 52 L26 60 M42 52 L46 60" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                  <circle cx="50" cy="18" r="4" fill="#FF1628"/>
-                  <path d="M46 18 Q42 10 50 14" stroke="#FF1628" stroke-width="1.5" fill="none"/>
-                  <path d="M54 18 Q58 10 54 22" stroke="#FF1628" stroke-width="1.5" fill="none"/>
-                </svg>
+                <img src="assets/image1.png" alt="Celebrating nation-building organizations" style="width: 100%; height: 100%; object-fit: contain; display: block;" />
               </div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Identify &amp; celebrate organizations whose contributions uplift the nation.</p>
             </div>
             <div class="purpose-cell">
               <div class="purpose-icon">
-                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
-                  <rect x="10" y="42" width="10" height="20" stroke="#FF1628" stroke-width="2" rx="1"/>
-                  <rect x="24" y="32" width="10" height="30" stroke="#FF1628" stroke-width="2" rx="1"/>
-                  <rect x="38" y="20" width="10" height="42" stroke="#FF1628" stroke-width="2" rx="1"/>
-                  <rect x="52" y="10" width="10" height="52" stroke="#FF1628" stroke-width="2" rx="1"/>
-                  <path d="M10 52 L30 36 L44 42 L62 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                  <circle cx="62" cy="10" r="3" fill="#FF1628"/>
-                </svg>
+                <img src="assets/image2.png" alt="Economic growth" style="width: 100%; height: 100%; object-fit: contain; display: block;" />
               </div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Highlight impactful work that drives economic growth and community development.</p>
             </div>
             <div class="purpose-cell">
               <div class="purpose-icon">
-                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
-                  <rect x="10" y="38" width="52" height="10" stroke="#FF1628" stroke-width="2" rx="1"/>
-                  <rect x="10" y="52" width="52" height="10" stroke="#FF1628" stroke-width="2" rx="1"/>
-                  <rect x="10" y="24" width="52" height="10" stroke="#FF1628" stroke-width="2" rx="1"/>
-                  <path d="M48 10 L56 20 L44 20" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M48 10 L40 28" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+                <img src="assets/image3.png" alt="Community development" style="width: 100%; height: 100%; object-fit: contain; display: block;" />
               </div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Encourage emulation by inspiring businesses across Sri Lanka to follow these examples, fostering collective progress and stability.</p>
             </div>
             <!-- Row 2 -->
             <div class="purpose-cell">
               <div class="purpose-icon">
-                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
-                  <path d="M36 10 Q10 24 10 46 Q10 60 36 65 Q62 60 62 46 Q62 24 36 10Z" stroke="#FF1628" stroke-width="2" fill="none"/>
-                  <path d="M20 38 Q28 24 36 38 Q44 52 52 38" stroke="#FF1628" stroke-width="2" fill="none"/>
-                  <line x1="36" y1="10" x2="36" y2="65" stroke="#FF1628" stroke-width="2"/>
-                  <line x1="10" y1="46" x2="62" y2="46" stroke="#FF1628" stroke-width="2"/>
-                </svg>
+                <img src="assets/image4.png" alt="Sri Lanka and national development" style="width: 100%; height: 100%; object-fit: contain; display: block;" />
               </div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Inspire a vision for Sri Lanka's future as a thriving hub in South Asia, anchored by its talent pool.</p>
             </div>
             <div class="purpose-cell">
               <div class="purpose-icon">
-                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
-                  <circle cx="36" cy="30" r="18" stroke="#FF1628" stroke-width="2"/>
-                  <circle cx="36" cy="30" r="10" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M26 46 L20 62 L36 56 L52 62 L46 46" stroke="#FF1628" stroke-width="2" fill="none" stroke-linejoin="round"/>
-                  <line x1="36" y1="12" x2="36" y2="6" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="54" y1="30" x2="60" y2="30" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="18" y1="30" x2="12" y2="30" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+                <img src="assets/image5.png" alt="Recognition and achievement" style="width: 100%; height: 100%; object-fit: contain; display: block;" />
               </div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Showcase achievements that spark a national movement.</p>
             </div>
             <div class="purpose-cell">
               <div class="purpose-icon">
-                <svg viewBox="0 0 72 72" width="72" height="72" fill="none">
-                  <circle cx="36" cy="26" r="14" stroke="#FF1628" stroke-width="2" fill="none"/>
-                  <path d="M36 12 L36 8" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="24" y1="26" x2="36" y2="26" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M44 54 L52 38 L60 54" stroke="#FF1628" stroke-width="2" fill="none" stroke-linejoin="round"/>
-                  <line x1="36" y1="40" x2="36" y2="52" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                  <line x1="20" y1="52" x2="52" y2="52" stroke="#FF1628" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+                <img src="assets/image6.png" alt="Innovation and lasting progress" style="width: 100%; height: 100%; object-fit: contain; display: block;" />
               </div>
               <p style="font-size: 15px; line-height: 1.6; color: var(--color-brand-black); margin: 0;">Creating lasting progress – focus on generational impact for Sri Lanka's people and communities.</p>
             </div>
@@ -753,9 +695,9 @@
             <div class="benefit-cell">
               <div class="benefit-icon">
                 <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
-                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
-                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2.5"/>
+                  <path d="M42 56H8C8 47 12 41 20 38C23 37 26 36 29 37C34 38 39 41 42 45" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M48 34L52 43L61 44L54 51L56 60L48 56L40 60L42 51L35 44L44 43Z" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Position your organization as a national icon—earning validation as a driver of Sri Lanka's progress.</p>
@@ -763,9 +705,9 @@
             <div class="benefit-cell">
               <div class="benefit-icon">
                 <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
-                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
-                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2.5"/>
+                  <path d="M42 56H8C8 47 12 41 20 38C23 37 26 36 29 37C34 38 39 41 42 45" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M48 34L52 43L61 44L54 51L56 60L48 56L40 60L42 51L35 44L44 43Z" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Be recognized as a trusted leader, showcasing tangible impact through social responsibility and inclusive growth—attracting partnerships, and opportunities.</p>
@@ -773,9 +715,9 @@
             <div class="benefit-cell">
               <div class="benefit-icon">
                 <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
-                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
-                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2.5"/>
+                  <path d="M42 56H8C8 47 12 41 20 38C23 37 26 36 29 37C34 38 39 41 42 45" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M48 34L52 43L61 44L54 51L56 60L48 56L40 60L42 51L35 44L44 43Z" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Gain strategic business advantage by building investor confidence and standing out in competitive markets.</p>
@@ -786,9 +728,9 @@
             <div class="benefit-cell">
               <div class="benefit-icon">
                 <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
-                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
-                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2.5"/>
+                  <path d="M42 56H8C8 47 12 41 20 38C23 37 26 36 29 37C34 38 39 41 42 45" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M48 34L52 43L61 44L54 51L56 60L48 56L40 60L42 51L35 44L44 43Z" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Improve customer loyalty through stronger emotional connection and shared purpose with an organization that recognizes and champions nation builders.</p>
@@ -796,9 +738,9 @@
             <div class="benefit-cell">
               <div class="benefit-icon">
                 <svg viewBox="0 0 64 64" width="64" height="64" fill="none">
-                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2"/>
-                  <path d="M8 56 Q8 40 28 40 Q48 40 48 56" stroke="#FF1628" stroke-width="2" fill="none" stroke-linecap="round"/>
-                  <path d="M44 14 L50 20 L58 10" stroke="#FF1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="28" cy="20" r="12" stroke="#FF1628" stroke-width="2.5"/>
+                  <path d="M42 56H8C8 47 12 41 20 38C23 37 26 36 29 37C34 38 39 41 42 45" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M48 34L52 43L61 44L54 51L56 60L48 56L40 60L42 51L35 44L44 43Z" stroke="#FF1628" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
               <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">Attract top talent while elevating employee trust, pride, retention, and advocacy.</p>
@@ -879,119 +821,6 @@
       </section>
     </main>
   </sc-if>
-  <!-- METHODOLOGY -->
-  <sc-if value="{{ isMethodology }}" hint-placeholder-val="{{ false }}">
-    <main data-screen-label="Methodology">
-      <div style="max-width: 1000px; margin: 0 auto; padding: 80px 24px 0; text-align: center;">
-        <div style="margin-bottom: 16px;"><span class="methodology-label" style="color: var(--color-accent);">Methodology</span></div>
-        <h1 style="font-size: 44px; font-weight: 700; letter-spacing: -0.025em; max-width: 18ch; margin: 0 auto 16px; line-height: 1.15;" class="heading-serif-mix">
-          Three stages from registration to recognition
-        </h1>
-        <p style="max-width: 56ch; color: var(--color-text-secondary); font-size: 17px; margin: 0 auto 56px; line-height: 1.65;">Every nomination moves through a structured, independently evaluated process before it is considered for the inaugural Nation Builders list.</p>
-      </div>
-      <section style="max-width: 1200px; margin: 0 auto; padding: 0 24px 80px;">
-        <div style="aspect-ratio: 21/6; overflow: hidden; border-radius: var(--radius-lg);">
-          <img src="assets/train-viaduct-gray.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;">
-        </div>
-      </section>
-      <section style="background: var(--color-surface); padding: 80px 24px;">
-        <div style="max-width: 1000px; margin: 0 auto;">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 72px;">
-            <sc-for list="{{ methodologyStages }}" as="stage" hint-placeholder-count="3">
-              <div class="nb-card" style="padding: 32px; text-align: left;">
-                <div style="font-family: var(--font-heading); font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid var(--color-accent);">STAGE {{ stage.n }}</div>
-                <h3 style="font-weight: 700; font-size: 19px; margin: 12px 0 16px; letter-spacing: -0.01em;">{{ stage.title }}</h3>
-                <sc-for list="{{ stage.items }}" as="line" hint-placeholder-count="2">
-                  <p class="nb-list-item">{{ line }}</p>
-                </sc-for>
-              </div>
-            </sc-for>
-          </div>
-          <!-- GPTW Culture Check Section -->
-  <section class="methodology-culture-section" style="padding: 80px 24px; background: var(--color-surface);">
-  <div style="max-width: 1100px; margin: 0 auto;">
-    <div style="text-align: center; margin-bottom: 48px;">
-      <div style="margin-bottom: 16px;"><span class="methodology-label" style="color: var(--color-accent);">Culture Check</span></div>
-      <h2 class="methodology-culture-heading heading-serif-mix" style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0;">
-        <span>Great Place To Work®</span><span>Employee Experience &amp; Culture Check</span>
-      </h2>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 16px;">
-      <!-- Card 1: Employee Feedback Survey -->
-      <div class="nb-card culture-check-card methodology-culture-card" style="padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
-        <div>
-          <h4 style="font-weight: 700; font-size: 17px; margin: 0 0 10px; letter-spacing: -0.01em;">Employee Feedback Survey</h4>
-          <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 18px; line-height: 1.6;">A survey that measures employees' perception towards the key workplace relationships.</p>
-          <sc-for list="{{ surveyTraits }}" as="item" hint-placeholder-count="5">
-            <p class="nb-list-item">{{ item }}</p>
-          </sc-for>
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center;">
-          <svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Employees' Trust diagram — Credibility, Respect, Fairness, Pride, Camaraderie around Management">
-            <circle cx="110" cy="100" r="28" fill="#FF1628" opacity="0.15"/>
-            <circle cx="110" cy="100" r="18" fill="#FF1628" opacity="0.3"/>
-            <text x="110" y="105" text-anchor="middle" font-size="10" font-weight="700" fill="#FF1628">MGMT</text>
-            <circle cx="110" cy="30" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
-            <text x="110" y="34" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Credibility</text>
-            <line x1="110" y1="52" x2="110" y2="72" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
-            <circle cx="190" cy="70" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
-            <text x="190" y="74" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Respect</text>
-            <line x1="169" y1="82" x2="135" y2="92" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
-            <circle cx="170" cy="160" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
-            <text x="170" y="164" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Pride</text>
-            <line x1="152" y1="143" x2="128" y2="115" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
-            <circle cx="50" cy="160" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
-            <text x="50" y="164" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Camara-</text>
-            <text x="50" y="173" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">derie</text>
-            <line x1="68" y1="143" x2="92" y2="115" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
-            <circle cx="30" cy="70" r="22" fill="#fff" stroke="#FF1628" stroke-width="1.5"/>
-            <text x="30" y="74" text-anchor="middle" font-size="8" fill="#FF1628" font-weight="600">Fairness</text>
-            <line x1="51" y1="82" x2="85" y2="92" stroke="#FF1628" stroke-width="1" stroke-dasharray="3,2"/>
-            <text x="110" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#11131C">Employees' TRUST</text>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Card 2: Culture Audit -->
-      <div class="nb-card culture-check-card methodology-culture-card" style="padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
-        <div style="display: flex; align-items: center; justify-content: center; min-height: 180px; background: linear-gradient(135deg, #f4f4f4, #ececec); border-radius: 12px; overflow: hidden;">
-          <img src="assets/culture audit.jpeg" alt="Culture Audit" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        </div>
-        <div>
-          <h4 style="font-weight: 700; font-size: 17px; margin: 0 0 10px; letter-spacing: -0.01em;">Culture Audit (TM)</h4>
-          <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 18px; line-height: 1.6;">A submission that captures people practices to:</p>
-          <sc-for list="{{ cultureAuditTraits }}" as="item" hint-placeholder-count="6">
-            <p class="nb-list-item">{{ item }}</p>
-          </sc-for>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-        </div>
-      </section>
-      <section style="padding: 80px 24px;">
-        <div style="max-width: 1000px; margin: 0 auto;">
-          <div style="text-align: center; margin-bottom: 48px;">
-            <div style="margin-bottom: 16px;"><span class="methodology-label" style="color: var(--color-accent);">Eligibility Criteria</span></div>
-            
-            <h2 style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0;" class="heading-serif-mix">
-              Who can apply
-            </h2>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4px; background: var(--color-surface); border-radius: var(--radius-md); padding: 6px;">
-            <sc-for list="{{ eligibilityItems }}" as="item" hint-placeholder-count="5">
-              <div style="display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; background: var(--color-bg); border-radius: 8px; margin: 2px;">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="var(--color-accent)" stroke-width="2.2" style="flex: none; margin-top: 2px;"><path d="M3 9.5l4 4 8-9"></path></svg>
-                <p style="margin: 0; font-size: 15px; line-height: 1.5;">{{ item }}</p>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-      </section>
-    </main>
-  </sc-if>
   <!-- EVALUATION CRITERIA -->
   <sc-if value="{{ isCriteria }}" hint-placeholder-val="{{ false }}">
     <main data-screen-label="Evaluation Criteria">
@@ -1030,6 +859,52 @@
           Participating organizations must score on a minimum of seven criteria, including the Great Place To Work Employee Experience and Culture Check. Organizations that submit seven items covering at least one criterion under each of the three P's—People, Planet, and Profit—will have an added advantage.
         </p>
       </div>
+
+      <!-- Culture Check details -->
+      <section class="methodology-culture-section" style="padding: 80px 24px; background: var(--color-surface);">
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 48px;">
+            
+            <h2 class="methodology-culture-heading heading-serif-mix" style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; margin: 0;">
+              <span>Great Place To Work®</span><span>Employee Experience &amp; Culture Check</span>
+            </h2>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="nb-card culture-check-card methodology-culture-card" style="padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+              <div>
+                <h4 style="font-weight: 700; font-size: 17px; margin: 0 0 10px; letter-spacing: -0.01em;">Employee Feedback Survey</h4>
+                <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 18px; line-height: 1.6;">A survey that measures employees' perception towards the key workplace relationships.</p>
+                <ul class="nb-bullet-list">
+                  <sc-for list="{{ surveyTraits }}" as="item" hint-placeholder-count="5">
+                    <li>{{ item }}</li>
+                  </sc-for>
+                </ul>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: center;">
+                <div style="display: flex; align-items: center; justify-content: center; min-height: 180px; background: linear-gradient(135deg, #f4f4f4, #ececec); border-radius: 12px; overflow: hidden;">
+                <img src="assets/employee_trust.jpeg" alt="Culture Audit" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              </div>
+              </div>
+            </div>
+
+            <div class="nb-card culture-check-card methodology-culture-card" style="padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+              <div style="display: flex; align-items: center; justify-content: center; min-height: 180px; background: linear-gradient(135deg, #f4f4f4, #ececec); border-radius: 12px; overflow: hidden;">
+                <img src="assets/culture audit.jpeg" alt="Culture Audit" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              </div>
+              <div>
+                <h4 style="font-weight: 700; font-size: 17px; margin: 0 0 10px; letter-spacing: -0.01em;">Culture Audit (TM)</h4>
+                <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 18px; line-height: 1.6;">A submission that captures people practices to:</p>
+                <ul class="nb-bullet-list">
+                  <sc-for list="{{ cultureAuditTraits }}" as="item" hint-placeholder-count="6">
+                    <li>{{ item }}</li>
+                  </sc-for>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
         </main>
   </sc-if>
@@ -1184,88 +1059,211 @@
     <main class="about-page" data-screen-label="About Us" style="max-width: 900px; margin: 0 auto; padding: 80px 24px 100px;">
       <h1 style="font-family: var(--font-heading); font-size: 44px; font-weight: 800; color: var(--color-brand-black); margin: 0 0 48px; letter-spacing: -0.02em;">About Us</h1>
 
-      <!-- Our Mission accordion -->
-      <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
-        <button onClick="{{ toggleAboutMission }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
-          <span>Our Mission</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutMissionOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
-        </button>
-        <sc-if value="{{ aboutMissionOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="padding: 28px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
-            <div class="about-mission-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-              <div style="background: #fff; border-radius: 8px; padding: 28px; border: 1px solid var(--color-gray-3);">
-                <h3 style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin: 0 0 10px;">Vision</h3>
-                <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">A Sri Lanka recognized as a thriving hub in South Asia, anchored by the strength and talent of its people.</p>
-              </div>
-              <div style="background: #fff; border-radius: 8px; padding: 28px; border: 1px solid var(--color-gray-3);">
-                <h3 style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin: 0 0 10px;">Mission</h3>
-                <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">To identify and celebrate organizations whose contributions uplift the nation, inspiring collective progress across Sri Lankan industry.</p>
+      <sc-if value="{{ isAboutMission }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
+          <button onClick="{{ toggleAboutMission }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+            <span>Our Mission</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutMissionOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
+          </button>
+          <sc-if value="{{ aboutMissionOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 28px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+              <div class="about-mission-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                <div style="background: #fff; border-radius: 8px; padding: 28px; border: 1px solid var(--color-gray-3);">
+                  <h3 style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin: 0 0 10px;">Vision</h3>
+                  <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">A Sri Lanka recognized as a thriving hub in South Asia, anchored by the strength and talent of its people.</p>
+                </div>
+                <div style="background: #fff; border-radius: 8px; padding: 28px; border: 1px solid var(--color-gray-3);">
+                  <h3 style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin: 0 0 10px;">Mission</h3>
+                  <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">To identify and celebrate organizations whose contributions uplift the nation, inspiring collective progress across Sri Lankan industry.</p>
+                </div>
               </div>
             </div>
-          </div>
-        </sc-if>
-      </div>
-      <!-- Methodology accordion -->
-      <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
-        <button onClick="{{ toggleAboutMethodology }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
-          <span>Methodology</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutMethodologyOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
-        </button>
-        <sc-if value="{{ aboutMethodologyOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="padding: 28px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
-            <div class="about-methodology-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-              <sc-for list="{{ methodologyStages }}" as="stage" hint-placeholder-count="3">
-                <div style="background: #fff; border-radius: 8px; padding: 24px; border: 1px solid var(--color-gray-3);">
-                  <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid var(--color-accent);">STAGE {{ stage.n }}</div>
-                  <h4 class="about-methodology-card-title" style="font-size: 15px; font-weight: 700; margin: 10px 0 12px;">{{ stage.title }}</h4>
-                  <sc-for list="{{ stage.items }}" as="line" hint-placeholder-count="2">
-                    <p class="nb-list-item">{{ line }}</p>
-                  </sc-for>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAboutMethodology }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
+          <button onClick="{{ toggleAboutMethodology }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+            <span>Methodology</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutMethodologyOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
+          </button>
+          <sc-if value="{{ aboutMethodologyOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 28px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="background: #fff; border: 1px solid var(--color-gray-3); border-radius: 8px; padding: 24px;">
+                  <h3 style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin: 0 0 12px;">How we assess impact</h3>
+                  <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; margin: 0;">The Nation Builders recognition framework evaluates organizations through three pillars: People, Planet and Profit, with the strongest emphasis on workplace culture, employee experience, and measurable national impact.</p>
+                </div>
+                <div style="background: #fff; border: 1px solid var(--color-gray-3); border-radius: 8px; padding: 24px;">
+                  <h3 style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin: 0 0 12px;">What shapes the score</h3>
+                  <ul style="margin: 0; padding-left: 18px; color: var(--color-text-secondary); font-size: 14px; line-height: 1.7;">
+                    <li>Employee feedback and experience indicators</li>
+                    <li>Culture Audit and people practices</li>
+                    <li>Community, social and environmental contribution</li>
+                    <li>Economic impact, governance and long-term business sustainability</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAboutFaqPage }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
+          <button onClick="{{ toggleAboutFaq }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
+            <span>FAQ</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutFaqOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
+          </button>
+          <sc-if value="{{ aboutFaqOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 8px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
+              <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="5">
+                <div class="nb-faq-item" style="background: #fff; margin-bottom: 4px; border-radius: 4px;">
+                  <button onClick="{{ item.onClick }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: none; border: none; text-align: left; cursor: pointer; padding: 20px 22px; font-family: var(--font-heading);">
+                    <span style="font-weight: 700; font-size: 14px;">{{ item.q }}</span>
+                    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="var(--color-accent)" stroke-width="2.2" style="flex: none; transform: {{ item.chevronTransform }}; transition: transform 0.2s ease;"><path d="M4 6l5 6 5-6"></path></svg>
+                  </button>
+                  <div style="display: {{ item.bodyDisplay }}; padding: 0 22px 20px;">
+                    <p style="margin: 0; font-size: 13px; color: var(--color-text-secondary); line-height: 1.7;">{{ item.a }}</p>
+                  </div>
                 </div>
               </sc-for>
             </div>
-          </div>
           </sc-if>
-      </div>
+        </div>
+      </sc-if>
 
-      <!-- FAQ accordion -->
-      <div style="margin-bottom: 12px; border: 1px solid var(--color-gray-3);">
-        <button onClick="{{ toggleAboutFaq }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
-          <span>FAQ</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutFaqOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
-        </button>
-        <sc-if value="{{ aboutFaqOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="padding: 8px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
-            <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="5">
-              <div class="nb-faq-item" style="background: #fff; margin-bottom: 4px; border-radius: 4px;">
-                <button onClick="{{ item.onClick }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: none; border: none; text-align: left; cursor: pointer; padding: 20px 22px; font-family: var(--font-heading);">
-                  <span style="font-weight: 700; font-size: 14px;">{{ item.q }}</span>
-                  <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="var(--color-accent)" stroke-width="2.2" style="flex: none; transform: {{ item.chevronTransform }}; transition: transform 0.2s ease;"><path d="M4 6l5 6 5-6"></path></svg>
-                </button>
-                <div style="display: {{ item.bodyDisplay }}; padding: 0 22px 20px;">
-                  <p style="margin: 0; font-size: 13px; color: var(--color-text-secondary); line-height: 1.7;">{{ item.a }}</p>
+      <sc-if value="{{ isAboutTeamPage }}" hint-placeholder-val="{{ false }}">
+        <div style="padding: 8px 0 0;">
+          <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 style="font-size: 42px; line-height: 1.1; margin: 0 0 16px; color: var(--color-accent); font-weight: 800; font-family: var(--font-heading); text-align: center;">Meet the Team</h2>
+            <h2 style="font-size: 32px; line-height: 1.1; margin: 0 0 24px; color: var(--color-gray-6); font-weight: 800; font-family: var(--font-heading);">Leadership Team</h2>
+            <div style="border-top: 1px solid var(--color-brand-black); margin-bottom: 40px;"></div>
+            <div class="team-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-bottom: 56px;">
+              <sc-for list="{{ teamGroups[0].members }}" as="member" hint-placeholder-count="4">
+                <div style="display: flex; flex-direction: column; gap: 18px;">
+                  <div style="background: var(--color-gray-2); border-radius: 0; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <img src="{{ member.image }}" alt="{{ member.name }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                  </div>
+                  <div>
+                    <h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: var(--color-brand-black); font-family: var(--font-heading);">{{ member.name }}</h3>
+                    <div style="font-size: 15px; line-height: 1.4; color: #090a0a; font-style: italic; margin-bottom: 18px;">{{ member.role }}</div>
+                    <a href="{{ member.linkedin }}" target="_blank" rel="noreferrer" aria-label="LinkedIn profile for {{ member.name }}" style="width: 40px; height: 40px; border-radius: 8px; background: var(--color-brand-black); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; text-decoration: none;">in</a>
+                  </div>
                 </div>
+              </sc-for>
+            </div>
+
+            <div style="margin-top: 56px;">
+              <h2 style="font-size: 32px; line-height: 1.1; margin: 0 0 24px; color: var(--color-gray-6); font-weight: 800; font-family: var(--font-heading);">Business Development Team</h2>
+              <div style="border-top: 1px solid var(--color-brand-black); margin-bottom: 40px;"></div>
+              <div class="team-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-bottom: 56px;">
+                <sc-for list="{{ teamGroups[1].members }}" as="member" hint-placeholder-count="4">
+                  <div style="display: flex; flex-direction: column; gap: 18px;">
+                    <div style="background: var(--color-gray-2); border-radius: 0; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                      <img src="{{ member.image }}" alt="{{ member.name }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                    </div>
+                    <div>
+                      <h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: var(--color-brand-black); font-family: var(--font-heading);">{{ member.name }}</h3>
+                      <div style="font-size: 15px; line-height: 1.4; color: #090a0a; font-style: italic; margin-bottom: 18px;">{{ member.role }}</div>
+                      <a href="{{ member.linkedin }}" target="_blank" rel="noreferrer" aria-label="LinkedIn profile for {{ member.name }}" style="width: 40px; height: 40px; border-radius: 8px; background: var(--color-brand-black); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; text-decoration: none;">in</a>
+                    </div>
+                  </div>
+                </sc-for>
               </div>
-            </sc-for>
+            </div>
+
+            <div style="margin-top: 56px;">
+              <h2 style="font-size: 32px; line-height: 1.1; margin: 0 0 24px; color: var(--color-gray-6); font-weight: 800; font-family: var(--font-heading);">Events and Programs Team</h2>
+              <div style="border-top: 1px solid var(--color-brand-black); margin-bottom: 40px;"></div>
+              <div class="team-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-bottom: 56px;">
+                <sc-for list="{{ teamGroups[2].members }}" as="member" hint-placeholder-count="4">
+                  <div style="display: flex; flex-direction: column; gap: 18px;">
+                    <div style="background: var(--color-gray-2); border-radius: 0; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                      <img src="{{ member.image }}" alt="{{ member.name }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                    </div>
+                    <div>
+                      <h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: var(--color-brand-black); font-family: var(--font-heading);">{{ member.name }}</h3>
+                      <div style="font-size: 15px; line-height: 1.4; color: #090a0a; font-style: italic; margin-bottom: 18px;">{{ member.role }}</div>
+                      <a href="{{ member.linkedin }}" target="_blank" rel="noreferrer" aria-label="LinkedIn profile for {{ member.name }}" style="width: 40px; height: 40px; border-radius: 8px; background: var(--color-brand-black); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; text-decoration: none;">in</a>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="margin-top: 56px;">
+              <h2 style="font-size: 32px; line-height: 1.1; margin: 0 0 24px; color: var(--color-gray-6); font-weight: 800; font-family: var(--font-heading);">Customer Success Management Team</h2>
+              <div style="border-top: 1px solid var(--color-brand-black); margin-bottom: 40px;"></div>
+              <div class="team-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-bottom: 56px;">
+                <sc-for list="{{ teamGroups[3].members }}" as="member" hint-placeholder-count="4">
+                  <div style="display: flex; flex-direction: column; gap: 18px;">
+                    <div style="background: var(--color-gray-2); border-radius: 0; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                      <img src="{{ member.image }}" alt="{{ member.name }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                    </div>
+                    <div>
+                      <h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: var(--color-brand-black); font-family: var(--font-heading);">{{ member.name }}</h3>
+                      <div style="font-size: 15px; line-height: 1.4; color: #090a0a; font-style: italic; margin-bottom: 18px;">{{ member.role }}</div>
+                      <a href="{{ member.linkedin }}" target="_blank" rel="noreferrer" aria-label="LinkedIn profile for {{ member.name }}" style="width: 40px; height: 40px; border-radius: 8px; background: var(--color-brand-black); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; text-decoration: none;">in</a>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="margin-top: 56px;">
+              <h2 style="font-size: 32px; line-height: 1.1; margin: 0 0 24px; color: var(--color-gray-6); font-weight: 800; font-family: var(--font-heading);">Central Functions Team</h2>
+              <div style="border-top: 1px solid var(--color-brand-black); margin-bottom: 40px;"></div>
+              <div class="team-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-bottom: 56px;">
+                <sc-for list="{{ teamGroups[4].members }}" as="member" hint-placeholder-count="4">
+                  <div style="display: flex; flex-direction: column; gap: 18px;">
+                    <div style="background: var(--color-gray-2); border-radius: 0; height: 320px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                      <img src="{{ member.image }}" alt="{{ member.name }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                    </div>
+                    <div>
+                      <h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 700; color: var(--color-brand-black); font-family: var(--font-heading);">{{ member.name }}</h3>
+                      <div style="font-size: 15px; line-height: 1.4; color: #090a0a; font-style: italic; margin-bottom: 18px;">{{ member.role }}</div>
+                      <a href="{{ member.linkedin }}" target="_blank" rel="noreferrer" aria-label="LinkedIn profile for {{ member.name }}" style="width: 40px; height: 40px; border-radius: 8px; background: var(--color-brand-black); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; text-decoration: none;">in</a>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
           </div>
-        </sc-if>
-      </div>
-       <!-- Our Team accordion -->
-      <div style="border: 1px solid var(--color-gray-3);">
-        <button onClick="{{ toggleAboutTeam }}" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; background: #fff; border: none; cursor: pointer; font-family: var(--font-heading); font-weight: 600; font-size: 18px; color: var(--color-brand-black);">
-          <span>Our Team</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--color-brand-black)" stroke-width="2" stroke-linecap="round" style="transform: {{ aboutTeamOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}; transition: transform 0.2s;"><path d="M4 7l6 6 6-6"/></svg>
-        </button>
-        <sc-if value="{{ aboutTeamOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="padding: 28px; border-top: 1px solid var(--color-gray-3); background: var(--color-gray-1);">
-            <p style="font-size: 14px; color: var(--color-text-secondary); margin: 0 0 20px; line-height: 1.6;">For our full team information, please visit the Great Place To Work® main website.</p>
-            <a href="https://greatplacetowork.lk/meet-our-team/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 600; font-size: 13px; color: var(--color-accent); text-decoration: none; border: 1.5px solid var(--color-accent); padding: 10px 20px;">Visit greatplacetowork.lk →</a>
-          </div>
-        </sc-if>
-      </div>
+        </div>
+      </sc-if>
       <!-- Contact cards -->
       </main>
   </sc-if>
+
+  <style>
+  @media (max-width: 1024px) {
+    .team-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .team-grid {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+    }
+    .team-grid > * {
+      width: 100% !important;
+    }
+    .team-grid img {
+      height: 340px !important;
+      object-position: center top !important;
+    }
+    .about-page h2[style*="font-size: 42px"] {
+      font-size: 30px !important;
+    }
+    .about-page h2[style*="font-size: 32px"] {
+      font-size: 26px !important;
+    }
+  }
+</style>
 
   <!-- CONTACT -->
   <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
@@ -1302,8 +1300,8 @@
         <sc-if value="{{ contactSubmitted }}" hint-placeholder-val="{{ false }}">
           <div style="text-align: center; padding: 32px 8px;">
             <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px;">✓</div>
-            <h2 style="font-size: 22px; margin: 0 0 10px; color: var(--color-brand-black);">Message ready to send.</h2>
-            <p style="font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); margin: 0 0 20px;">Your email app should open with the message addressed to our team.</p>
+            <h2 style="font-size: 28px; line-height: 1.2; margin: 0 auto 14px; color: var(--color-brand-black);">Thank you for registering your interest</h2>
+            <p style="max-width: 520px; margin: 0 auto 24px; font-size: 15px; line-height: 1.7; color: var(--color-text-secondary);">Thank you for registering your interest in the "Nation Builders: Powered by People" recognition program. We have received your details and will be in touch with you shortly.</p>
             <button onClick="{{ resetContact }}" class="btn-outline">Send another message</button>
           </div>
         </sc-if>
@@ -1387,14 +1385,14 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;showHomeTimeline&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Home&quot;}}">
 // TODO(backend): point SUBMISSION_ENDPOINT at the processor that forwards applications
 // to the Nation Builders team inboxes and syncs them to Zoho (per project scope). Until
-// that endpoint exists, submissions fall back to a pre-filled email to lk_support@greatplacetowork.com —
+// that endpoint exists, submissions fall back to a pre-filled email to nirashademel2000@gmail.com —
 // swap in the real individual team addresses once they're provided.
 const SUBMISSION_ENDPOINT = '';
+const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/nirashademel2000@gmail.com';
 class Component extends DCLogic {
   state = {
     page: typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('company') ? 'organization' : 'home',
     selectedOrganizationKey: typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('company') : null,
-    theme: 'light',
     mobileMenuOpen: false,
     viewportWidth: typeof window !== 'undefined' ? window.innerWidth : 1280,
     criteriaTab: 'people',
@@ -1413,7 +1411,8 @@ class Component extends DCLogic {
     aboutMissionOpen: false,
     aboutMethodologyOpen: false,
     aboutFaqOpen: false,
-    aboutTeamOpen: false
+    aboutTeamOpen: false,
+    openNavDropdown: null
   };
   componentDidMount() {
     this._onResize = () => this.setState({ viewportWidth: window.innerWidth });
@@ -1424,21 +1423,42 @@ class Component extends DCLogic {
   }
   setPage(p) { this.setState({ page: p, mobileMenuOpen: false }); if (typeof window !== 'undefined') window.scrollTo(0, 0); }
   renderVals() {
-    const { page, theme, mobileMenuOpen, viewportWidth, criteriaTab, openFaq, polls, formStep, formSubmitted, formData, contactSubmitted, contactData, selectedOrganizationKey,
+    const { page, mobileMenuOpen, viewportWidth, criteriaTab, openFaq, polls, formStep, formSubmitted, formData, contactSubmitted, contactData, selectedOrganizationKey,
       year2027Open, year2028Open, studyReportsOpen, pressReleasesOpen,
-      aboutMissionOpen, aboutMethodologyOpen, aboutFaqOpen, aboutTeamOpen } = this.state;
+      aboutMissionOpen, aboutMethodologyOpen, aboutFaqOpen, aboutTeamOpen, openNavDropdown } = this.state;
     const isMobile = viewportWidth < 880;
     const accent = 'var(--color-accent)';
     const accentText = 'var(--color-accent)';
     const text = 'var(--color-text)';
     const navDefs = [
-      ['home', 'Home'], ['methodology', 'Methodology'], ['criteria', 'Evaluation Criteria'],
+      ['home', 'Home'], ['criteria', 'Evaluation Criteria'],
       ['recognition', 'Nation Builders'], ['insights', 'Insights'], ['about', 'About Us'], ['contact', 'Contact Us']
     ];
-    const navItems = navDefs.map(([key, label]) => ({
-      label, color: page === key ? accentText : text,
-      onClick: () => this.setPage(key)
-    }));
+    const navItems = navDefs.map(([key, label]) => {
+      const dropdown = key === 'insights'
+        ? [
+            { label: 'Study Reports', onClick: () => { this.setPage('insights'); this.setState({ studyReportsOpen: true, pressReleasesOpen: false, openNavDropdown: null }); } },
+            { label: 'Press Releases', onClick: () => { this.setPage('insights'); this.setState({ pressReleasesOpen: true, studyReportsOpen: false, openNavDropdown: null }); } }
+          ]
+        : key === 'about'
+          ? [
+              { label: 'Our Mission', onClick: () => { this.setPage('about-mission'); this.setState({ aboutMissionOpen: true, aboutMethodologyOpen: false, aboutFaqOpen: false, aboutTeamOpen: false, openNavDropdown: null }); } },
+              { label: 'Methodology', onClick: () => { this.setPage('about-methodology'); this.setState({ aboutMissionOpen: false, aboutMethodologyOpen: true, aboutFaqOpen: false, aboutTeamOpen: false, openNavDropdown: null }); } },
+              { label: 'FAQ', onClick: () => { this.setPage('about-faq'); this.setState({ aboutMissionOpen: false, aboutMethodologyOpen: false, aboutFaqOpen: true, aboutTeamOpen: false, openNavDropdown: null }); } },
+              { label: 'Our Team', onClick: () => { this.setPage('about-team'); this.setState({ aboutMissionOpen: false, aboutMethodologyOpen: false, aboutFaqOpen: false, aboutTeamOpen: true, openNavDropdown: null }); } }
+            ]
+          : null;
+
+      return {
+        label,
+        color: page === key ? accentText : text,
+        onClick: key === 'insights' || key === 'about'
+          ? () => this.setState({ openNavDropdown: openNavDropdown === key ? null : key })
+          : () => this.setPage(key),
+        dropdown,
+        dropdownOpen: openNavDropdown === key
+      };
+    });
     const purposeSrc = [
       'Identify & celebrate organizations whose contributions uplift the nation.',
       'Highlight impactful work that drives economic growth and community development.',
@@ -1453,17 +1473,6 @@ class Component extends DCLogic {
       { n: '02', label: 'Submit Assessment\nbefore 30th November 2026', detail: '' },
       { n: '03', label: 'Submit Audited\nAccounts by December 2026', detail: '' },
       { n: '04', label: 'Publication in\nFebruary 2027', detail: '' }
-    ];
-    const methodologyStages = [
-      { n: '01', title: 'Register & Submit', items: [
-        'Complete the Employee Feedback Survey', 'Submit the Culture Audit centrally',
-        'Submit the latest audited financial accounts & metric reference documents' ] },
-      { n: '02', title: 'Independent Evaluation', items: [
-        'Evaluated by Great Place To Work® Evaluators',
-        'Reviewed by an Independent and Third-Party Evaluation Panel' ] },
-      { n: '03', title: 'Selection & Recognition', items: [
-        'Selection of the top contestants for recognition and publication',
-        'Inaugural list published alongside Independence Day, February 2027' ] }
     ];
     const surveyTraits = ['Credibility', 'Respect', 'Fairness', 'Pride', 'Camaraderie'];
     const cultureAuditTraits = [
@@ -1549,6 +1558,39 @@ class Component extends DCLogic {
       { q: 'Is there a cost to participate?', a: 'Reach out to the Nation Builders team for participation details — contact information is below.' },
       { q: 'When and how will the results be announced?', a: "The inaugural Nation Builders: Powered by People list is scheduled to be published alongside Sri Lanka's Independence Day in February 2027." }
     ];
+    const teamGroups = [
+      { title: 'Leadership Team', members: [
+        { name: 'Kshanika Ratnayaka', role: 'Director/CEO', initials: 'KR', image: 'assets/Kshanika.png', linkedin: 'https://www.linkedin.com/in/kshanika-ratnayaka-5642313b/' },
+        { name: 'Ruwani Aliwhewa', role: 'Head of Assessment Business & Client Services', initials: 'RA', image: 'assets/Ruwani.png', linkedin: 'https://www.linkedin.com/in/ruwani-alwis-hewa-64888818/' },
+        { name: 'Kaneru Godagama', role: 'Head of Business Development', initials: 'KG', image: 'assets/Kaneru.png', linkedin: 'https://www.linkedin.com/in/kaneru-vimantha-godagama/' },
+        { name: 'Crisle Ratnayake', role: 'Head of Events, Programs & Partnerships', initials: 'CR', image: 'assets/Crisle.png', linkedin: 'https://www.linkedin.com/in/crisle-ratnayake-181209180/' }
+      ] },
+      { title: 'Business Development Team', members: [
+        { name: 'Paveena Senanayakage', role: 'Project Manager', initials: 'PS', image: 'assets/Paveena.png', linkedin: 'https://www.linkedin.com/in/paveena-senanayakage/' },
+        { name: 'Shehan Solomon', role: 'Project Manager', initials: 'SS', image: 'assets/Shehan.png', linkedin: 'https://www.linkedin.com/in/shehan-solomon-19929568/' },
+        { name: 'Fazla Refai', role: 'Relationship Manager', initials: 'FR', image: 'assets/Fazla.png', linkedin: 'https://www.linkedin.com/in/fazlarefai/' },
+        { name: 'Hashruthi Mutateesa', role: 'Senior Analyst – Consulting Business and People & Culture', initials: 'HM', image: 'assets/Hashruthi.png', linkedin: 'https://www.linkedin.com/in/hashruthi-mutateesa-hrprofessional/' },
+        { name: 'Arunasalam Kallyashan', role: 'Senior Analyst', initials: 'AK', image: 'assets/Arunasalam.png', linkedin: 'https://www.linkedin.com/in/arunasalam-kailash-b84ba4343/' },
+        { name: 'Saviru Weerasiri', role: 'Analyst', initials: 'SW', image: 'assets/Saviru.png', linkedin: 'https://www.linkedin.com/in/saviru-weerasiri-b6b609251/' },
+        { name: 'Selini Dulwanaya', role: 'Analyst', initials: 'SD', image: 'assets/Selini.png', linkedin: 'https://www.linkedin.com/in/selini-dulwanya-137a342b0/' }
+      ] },
+      { title: 'Events and Programs Team', members: [
+        { name: 'Chathurya Wijewardana', role: 'Senior Analyst', initials: 'CW', image: 'assets/Chathurya.png', linkedin: 'https://www.linkedin.com/in/chathurya-wijewardana-886963262/' },
+        { name: 'Nayana Fernando', role: 'Associate', initials: 'NF', image: 'assets/Nayana.png', linkedin: 'https://www.linkedin.com/in/nayana-fernando/' }
+      ] },
+      { title: 'Customer Success Management Team', members: [
+        { name: 'Shehan Mendis', role: 'Senior Consultant', initials: 'SM', image: 'assets/Mendis.png', linkedin: 'https://www.linkedin.com/in/shehan-mendis-92b20364/' },
+        { name: 'Hasindu Samarasinghe', role: 'Senior Consultant', initials: 'HS', image: 'assets/Hasindu.png', linkedin: 'https://www.linkedin.com/in/hasindu-samarasinghe/' },
+        { name: 'Inoj Gamage', role: 'Consultant', initials: 'IG', image: 'assets/Inoj.png', linkedin: 'https://www.linkedin.com/in/inoj-gamage-53b0ab7b/' },
+        { name: 'Dewni Nelumdeniya', role: 'Analyst', initials: 'DN', image: 'assets/Dewni.png', linkedin: 'https://www.linkedin.com/in/dewni-yasara-nelumdeniya-b4117a154/' }
+      ] },
+      { title: 'Central Functions Team', members: [
+        { name: 'Pradeep Vigneshwaran', role: 'Consultant – Accounts & Finance', initials: 'PV', image: 'assets/Pradeep.png', linkedin: 'https://www.linkedin.com/in/pradeep-kumar-aa4b26140/' },
+        { name: 'Praveena Amaratunga', role: 'Senior Specialist – Growth & Digital Marketing', initials: 'PA', image: 'assets/Praveena.png', linkedin: 'https://www.linkedin.com/in/praveena-amaratunga-171176143/' },
+        { name: 'Julianne Siromani', role: 'Analyst – Growth & Digital Marketing', initials: 'JS', image: 'assets/Julianne.png', linkedin: 'https://www.linkedin.com/in/julianne-siromani/' },
+        { name: 'Bhanuka Kariyawasam', role: 'Optimization & AI Enablement Specialist', initials: 'BK', image: 'assets/Bhanuka.png', linkedin: 'https://www.linkedin.com/in/bhanuka-kariyawasam/' }
+      ] }
+    ];
     const faqItems = faqSrc.map((item, i) => {
       const open = openFaq === i;
       return { ...item, bodyDisplay: open ? 'block' : 'none', chevronTransform: open ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -1566,16 +1608,15 @@ class Component extends DCLogic {
       onChange: () => this.setState({ formData: { ...formData, [c.key]: !formData[c.key] } }) }));
     const eligibilityCount = eligibilityChecks.filter(c => c.checked).length;
     return {
-      theme,
-      toggleTheme: () => this.setState({ theme: theme === 'light' ? 'dark' : 'light' }),
-      themeToggleLabel: theme === 'light' ? 'Dark' : 'Light',
-      isHome: page === 'home', isMethodology: page === 'methodology', isCriteria: page === 'criteria',
-      isRecognition: page === 'recognition', isOrganization: page === 'organization', isInsights: page === 'insights', isAbout: page === 'about',
+      isHome: page === 'home', isCriteria: page === 'criteria',
+      isRecognition: page === 'recognition', isOrganization: page === 'organization', isInsights: page === 'insights',
+      isAbout: page === 'about' || page === 'about-mission' || page === 'about-methodology' || page === 'about-faq' || page === 'about-team',
+      isAboutMission: page === 'about-mission', isAboutMethodology: page === 'about-methodology', isAboutFaqPage: page === 'about-faq', isAboutTeamPage: page === 'about-team',
       isApply: page === 'apply', isContact: page === 'contact',
       contactSubmitted,
       contactFormVisible: !contactSubmitted,
       contactData,
-      goHome: () => this.setPage('home'), goGreatPlaceToWork: () => { window.location.href = 'https://greatplacetowork.lk/'; }, goMethodology: () => this.setPage('methodology'), goCriteria: () => this.setPage('criteria'), goApply: () => this.setPage('apply'), goContact: () => this.setPage('contact'),
+      goHome: () => this.setPage('home'), goGreatPlaceToWork: () => { window.location.href = 'https://greatplacetowork.lk/'; }, goCriteria: () => this.setPage('criteria'), goApply: () => this.setPage('apply'), goContact: () => this.setPage('contact'),
       desktopNavDisplay: isMobile ? 'none' : 'flex', mobileNavDisplay: isMobile ? 'flex' : 'none',
       mobileMenuDisplay: (isMobile && mobileMenuOpen) ? 'flex' : 'none',
       toggleMobileMenu: () => this.setState({ mobileMenuOpen: !mobileMenuOpen }),
@@ -1585,11 +1626,12 @@ class Component extends DCLogic {
       purposeHighlights,
       showHomeTimeline: this.props.showHomeTimeline ?? true,
       timelineSteps,
-      methodologyStages, eligibilityItems, surveyTraits, cultureAuditTraits,
+      eligibilityItems, surveyTraits, cultureAuditTraits,
       criteriaTabs, activePillar, criteriaFootnote,
       recognitionPlaceholders,
       pollQuestions, benefitsAwardees, broaderImpact,
       faqItems,
+      teamGroups,
       nbOrgs2027,
       selectedOrganization,
       year2027Open, year2028Open,
@@ -1622,13 +1664,16 @@ class Component extends DCLogic {
       updateContactSource: e => this.setState({ contactData: { ...contactData, source: e.target.value } }),
       updateContactMessage: e => this.setState({ contactData: { ...contactData, message: e.target.value } }),
       updateContactConsent: e => this.setState({ contactData: { ...contactData, consent: e.target.checked } }),
-      submitContact: () => {
+      submitContact: async () => {
         if (!contactData.name.trim() || !contactData.email.trim() || !contactData.message.trim() || !contactData.consent) {
           window.alert('Please complete your name, email address, message, and consent before sending.');
           return;
         }
-        const subject = encodeURIComponent('Nation Builders contact enquiry from ' + (contactData.name || 'Website visitor'));
-        const body = encodeURIComponent(
+        const websiteSubject = 'Nation Builders website contact enquiry from ' + (contactData.name || 'Website visitor');
+        const subject = encodeURIComponent(websiteSubject);
+        const messageBody =
+          'Source: Nation Builders website\n' +
+          'Website: ' + window.location.href + '\n\n' +
           'Full name: ' + contactData.name + '\n' +
           'Designation: ' + contactData.designation + '\n' +
           'Organization: ' + contactData.organization + '\n' +
@@ -1636,9 +1681,32 @@ class Component extends DCLogic {
           'Email: ' + contactData.email + '\n' +
           'How they heard about us: ' + contactData.source + '\n\n' +
           'Message:\n' + contactData.message + '\n\n' +
-          'Consent to receive updates: ' + (contactData.consent ? 'Yes' : 'No')
-        );
-        window.open('mailto:lk_support@greatplacetowork.com?subject=' + subject + '&body=' + body);
+          'Consent to receive updates: ' + (contactData.consent ? 'Yes' : 'No');
+        try {
+          const response = await fetch(CONTACT_ENDPOINT, {
+            method: 'POST',
+            headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: contactData.name,
+              email: contactData.email,
+              _subject: websiteSubject,
+              _template: 'table',
+              source: 'Nation Builders website',
+              website: window.location.href,
+              designation: contactData.designation,
+              organization: contactData.organization,
+              phone: contactData.phone,
+              source: contactData.source,
+              message: contactData.message,
+              consent: contactData.consent ? 'Yes' : 'No'
+            })
+          });
+          if (!response.ok) throw new Error('Contact form submission failed');
+        } catch (err) {
+          console.error('Nation Builders contact submission failed:', err);
+          const body = encodeURIComponent(messageBody);
+          window.location.href = 'mailto:nirashademel2000@gmail.com?subject=' + subject + '&body=' + body;
+        }
         this.setState({ contactSubmitted: true });
       },
       resetContact: () => this.setState({ contactSubmitted: false, contactData: { name: '', designation: '', organization: '', phone: '', email: '', source: '', message: '', consent: false } }),
@@ -1664,15 +1732,17 @@ class Component extends DCLogic {
         } else {
           // Fallback while SUBMISSION_ENDPOINT is unset: open a pre-filled email so the
           // application isn't silently dropped.
-          const subject = encodeURIComponent('Nation Builders application — ' + (payload.organization || 'Untitled organization'));
+          const subject = encodeURIComponent('Nation Builders website application — ' + (payload.organization || 'Untitled organization'));
           const body = encodeURIComponent(
+            'Source: Nation Builders website\n' +
+            'Website: ' + window.location.href + '\n' +
             'Organization: ' + payload.organization + '\n' +
             'Industry: ' + payload.industry + '\n' +
             'Employees: ' + payload.employees + '\n' +
             'Contact: ' + payload.contact + '\n' +
             'Email: ' + payload.email
           );
-          window.open('mailto:lk_support@greatplacetowork.com?subject=' + subject + '&body=' + body);
+          window.open('mailto:nirashademel2000@gmail.com?subject=' + subject + '&body=' + body);
         }
         this.setState({ formSubmitted: true });
       },
