@@ -1385,10 +1385,10 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;showHomeTimeline&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Home&quot;}}">
 // TODO(backend): point SUBMISSION_ENDPOINT at the processor that forwards applications
 // to the Nation Builders team inboxes and syncs them to Zoho (per project scope). Until
-// that endpoint exists, submissions fall back to a pre-filled email to nirashademel2000@gmail.com —
+// that endpoint exists, submissions fall back to a pre-filled email to lk_support@greatplacetowork.com —
 // swap in the real individual team addresses once they're provided.
 const SUBMISSION_ENDPOINT = '';
-const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/nirashademel2000@gmail.com';
+const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/lk_support@greatplacetowork.com';
 class Component extends DCLogic {
   state = {
     page: typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('company') ? 'organization' : 'home',
@@ -1705,7 +1705,7 @@ class Component extends DCLogic {
         } catch (err) {
           console.error('Nation Builders contact submission failed:', err);
           const body = encodeURIComponent(messageBody);
-          window.location.href = 'mailto:nirashademel2000@gmail.com?subject=' + subject + '&body=' + body;
+          window.location.href = 'mailto:lk_support@greatplacetowork.com?subject=' + subject + '&body=' + body;
         }
         this.setState({ contactSubmitted: true });
       },
@@ -1742,7 +1742,7 @@ class Component extends DCLogic {
             'Contact: ' + payload.contact + '\n' +
             'Email: ' + payload.email
           );
-          window.open('mailto:nirashademel2000@gmail.com?subject=' + subject + '&body=' + body);
+          window.open('mailto:lk_support@greatplacetowork.com?subject=' + subject + '&body=' + body);
         }
         this.setState({ formSubmitted: true });
       },
