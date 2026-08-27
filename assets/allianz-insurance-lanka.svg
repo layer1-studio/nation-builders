@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-labelledby="title desc">
+  <title id="title">Allianz Insurance Lanka</title>
+  <desc id="desc">Allianz logo with blue circular emblem and wordmark</desc>
+  <rect width="320" height="220" fill="#fff"/>
+  <circle cx="160" cy="78" r="48" fill="#fff" stroke="#1261a0" stroke-width="5"/>
+  <circle cx="160" cy="78" r="39" fill="#dbe7f0" stroke="#1c4f7d" stroke-width="3"/>
+  <path d="M137 103V58h12v45h-12zm19 0V43h12v60h-12zm19 0V60h12v43h-12z" fill="#1d4f7c"/>
+  <path d="M125 111h70" stroke="#1d4f7c" stroke-width="4" stroke-linecap="round"/>
+  <text x="160" y="173" text-anchor="middle" fill="#07549a" font-family="Arial, sans-serif" font-size="31" font-weight="700">Allianz</text>
+  <text x="160" y="197" text-anchor="middle" fill="#1d4f7c" font-family="Arial, sans-serif" font-size="12" font-weight="600">Insurance Lanka</text>
+</svg>

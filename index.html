@@ -929,10 +929,10 @@
               <div style="padding: 8px 0;">
                 <sc-for list="{{ nbOrgs2027 }}" as="org" hint-placeholder-count="4">
                   <div style="display: flex; align-items: center; gap: 16px; padding: 12px 24px; border-bottom: 1px solid var(--color-gray-2);">
-                    <div style="width: 52px; height: 52px; background: var(--color-accent); display: flex; align-items: center; justify-content: center; flex: none;">
-                      <span style="font-family: var(--font-heading); font-weight: 700; font-size: 11px; color: #fff; letter-spacing: 0.05em;">LOGO</span>
+                    <div style="width: 52px; height: 52px; background: #fff; display: flex; align-items: center; justify-content: center; flex: none; overflow: hidden;">
+                      <img src="{{ org.logo }}" alt="{{ org.name }} logo" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
-                    <span style="flex: 1; font-family: var(--font-heading); font-weight: 500; font-size: 16px; color: var(--color-brand-black);">{{ org.name }}</span>
+                    <span style="flex: 1; font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--color-brand-black);">{{ org.name }}</span>
                     <button onClick="{{ org.openDetails }}" style="display: flex; align-items: center; gap: 6px; border: 1.5px solid var(--color-gray-9); background: none; border-radius: 20px; padding: 6px 14px; cursor: pointer; font-family: var(--font-heading); font-size: 11px; font-weight: 700; color: var(--color-brand-black); letter-spacing: 0.05em; white-space: nowrap;">
                       CLICK HERE
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
@@ -968,9 +968,11 @@
       <div class="organization-detail-header" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 48px;">
         <div>
           <div class="nb-badge" style="margin-bottom: 14px;">Nation Builders 2027</div>
-          <h1 style="font-size: clamp(34px, 6vw, 58px); line-height: 1.05; margin: 0; color: var(--color-brand-black);">{{ selectedOrganization.name }}</h1>
+          <h1 style="font-size: clamp(34px, 6vw, 58px); line-height: 1.05; margin: 0; color: var(--color-brand-black); font-weight: 800;">{{ selectedOrganization.name }}</h1>
         </div>
-        <div style="width: 96px; height: 96px; background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center; flex: none; font-weight: 800; font-size: 13px; letter-spacing: 0.08em;">LOGO</div>
+        <div style="width: 96px; height: 96px; background: #fff; display: flex; align-items: center; justify-content: center; flex: none; overflow: hidden;">
+          <img src="{{ selectedOrganization.logo }}" alt="{{ selectedOrganization.name }} logo" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+        </div>
       </div>
       <div class="organization-detail-grid" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px;">
         <section class="nb-card" style="padding: 32px;">
@@ -1507,7 +1509,7 @@ class Component extends DCLogic {
     const criteriaFootnote = "*Terms & Conditions apply. Participating organizations must score on a minimum of seven criteria, including the Great Place To Work Employee Experience and Culture Check. Organizations that submit seven items covering at least one criterion under each of the three P's — People, Planet, and Profit — will have an added advantage.";
     const recognitionPlaceholders = Array.from({ length: 6 }, (_, i) => ({ id: i }));
     const nbOrgs2027 = [
-      { key: 'organization-01', name: 'Organization 01', industry: 'Financial Services', location: 'Colombo, Sri Lanka', focus: 'Inclusive growth', description: 'Organization 01 is recognized for building capability, creating opportunity, and contributing to a stronger Sri Lankan economy.', impact: 'Its work connects business performance with meaningful progress for employees, customers, and communities.' },
+      { key: 'organization-01', name: 'Allianz Insurance Lanka', logo: 'assets/allianz-insurance-lanka.svg', industry: 'Insurance', location: 'Colombo, Sri Lanka', focus: 'Financial protection and inclusive growth', description: 'Allianz Insurance Lanka is recognized for helping individuals and businesses protect what matters while contributing to a more resilient Sri Lankan economy.', impact: 'Its work supports confidence, security, and long-term prosperity for customers, employees, and communities.' },
       { key: 'organization-02', name: 'Organization 02', industry: 'Manufacturing', location: 'Western Province, Sri Lanka', focus: 'Human capital', description: 'Organization 02 is recognized for investing in people, developing skills, and creating pathways for long-term employment.', impact: 'Its people-first approach demonstrates how responsible organizations can strengthen communities while growing sustainably.' },
       { key: 'organization-03', name: 'Organization 03', industry: 'Technology', location: 'Colombo, Sri Lanka', focus: 'Innovation and opportunity', description: 'Organization 03 is recognized for using innovation to create new opportunities and improve the way people work and live.', impact: 'Its contribution shows how technology and responsible leadership can help shape Sri Lanka’s future.' },
       { key: 'organization-04', name: 'Organization 04', industry: 'Infrastructure', location: 'Sri Lanka', focus: 'National development', description: 'Organization 04 is recognized for delivering work that supports national development and creates lasting value for communities.', impact: 'Its long-term contribution reflects the shared responsibility of organizations that help build a stronger nation.' }
