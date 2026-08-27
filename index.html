@@ -1418,10 +1418,15 @@ class Component extends DCLogic {
   };
   componentDidMount() {
     this._onResize = () => this.setState({ viewportWidth: window.innerWidth });
+    this._onDocumentClick = event => {
+      if (!event.target.closest('header')) this.setState({ openNavDropdown: null });
+    };
     window.addEventListener('resize', this._onResize);
+    document.addEventListener('click', this._onDocumentClick);
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this._onResize);
+    document.removeEventListener('click', this._onDocumentClick);
   }
   setPage(p) { this.setState({ page: p, mobileMenuOpen: false }); if (typeof window !== 'undefined') window.scrollTo(0, 0); }
   renderVals() {
